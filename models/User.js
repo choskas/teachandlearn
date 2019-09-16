@@ -14,6 +14,11 @@ const userSchema= new Schema({
     type: String,
     enum: ['ADMIN', 'TEACHER', 'ALUMN'],
     default: 'ALUMN'
+  },
+  picName: String,
+  picPath: {
+    type: String,
+    default: 'http://www.herbeumont.be/macommune/vie-politique/conseil-communal/img/no-profile-image-png.png/image_view_fullscreen', 
   }
 },{
   timestamps: true,

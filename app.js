@@ -10,10 +10,10 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport = require('./config/passport')
 const session = require('express-session')
-
+const MongoStore = require('connect-mongo')(session)
 
 mongoose
-  .connect('mongodb://localhost/proyecto2', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -27,12 +27,26 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 //Session
-app.use(session({
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24
-  },
-  secret: process.env.SECRET
-}))
+// app.use(session({
+//   cookie: {
+//     maxAge: 1000 * 60 * 60 * 24
+//   },
+//   secret: process.env.SECRET
+// }))
+
+
+app.use(
+  session({
+    secret: "Mariana_15",
+    resave: true,
+    cookie: { maxAge: 60000 },
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  })
+);
+
 
 //PAssport
 app.use(passport.initialize())

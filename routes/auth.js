@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const User = require ('../models/User')
 const passport = require('../config/passport')
-
+const Profile = require('../models/Profile')
+const uploadCloud = require('../config/cloudinary')
 
 router.get('/signup', (req,res,next) =>{
   const config = {
@@ -37,12 +38,25 @@ router.get('/login',(req,res,next)=>{
 })
 
 router.post('/login', passport.authenticate('local'), (req,res,next)=>{
-  console.log(req.userName, req.session)
-  res.redirect('/profile')
+  
+    res.redirect('/profile')
+  
 })
 
 router.get('/profile', checkAuthentication, (req,res,next)=>{
+  if(req.user.role === 'TEACHER'){
+
+    res.render('auth/profileTeacher', {user: req.userName})
+  }
   res.render('auth/profile',{user: req.userName})
+})
+
+router.post('/profile', uploadCloud.single('photo'), async (req,res)=>{
+  let {content} = req.body
+  let picName = req.file.originalname
+  let picPath = req.file.url
+  await Profile.create({content, picName, picPath})
+  res.redirect('/profile')
 })
 
 router.get('/logout', (req,res,next) =>{

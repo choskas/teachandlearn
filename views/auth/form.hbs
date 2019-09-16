@@ -9,6 +9,18 @@
   </div>
   <input type="email" name="email" class="form-control" placeholder="email@email.com" aria-label="Username" aria-describedby="addon-wrapping">
 </div>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Teacher or Alumn</label>
+  </div>
+  <br>
+  <select class="custom-select" id="inputGroupSelect01" name="role">
+    <option selected>Choose...</option>
+    <option value="ALUMN" name="ALUMN">Alumn</option>
+    <option value="TEACHER"name="TEACHER">Teacher</option>
+    
+  </select>
+</div>
   {{/if}}
   <br>
   <div class="user" class="input-group flex-nowrap">
