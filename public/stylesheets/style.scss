@@ -1,0 +1,40 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#registro{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 10% 25%;
+  width: 50vw;
+  height: 60vw;
+  text-align: center;
+  font-size: .8em;
+
+}
+
+#caja-registro{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  justify-items: center
+}
+
+#title{
+  margin-bottom: 10vh;
+}
+
+.user{
+
+  margin-bottom: 3px;
+}
+
+#signup-btn{
+  margin-top: 5vh;
+}

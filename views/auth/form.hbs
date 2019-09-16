@@ -1,0 +1,31 @@
+<div class="card" class="d-flex p-2 bd-highlight" id="registro">
+  <div class="card-body" class="d-flex justify-content-between">
+<h3 id="title">{{title}}</h3>
+<form action="{{action}}" method="POST" id="caja-registro">
+  {{#if register}}
+  <div class="user" class="input-group flex-nowrap">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping">@</span>
+  </div>
+  <input type="email" name="email" class="form-control" placeholder="email@email.com" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+  {{/if}}
+  <br>
+  <div class="user" class="input-group flex-nowrap">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping">Usuario</span>
+  </div>
+  <input type="text" name="userName" class="form-control" placeholder="Juanito" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+  <br>
+  <div class="user" class="input-group flex-nowrap">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping">Contraseña</span>
+  </div>
+  <input type="password" name="password" class="form-control" placeholder="123" aria-label="Username" aria-describedby="addon-wrapping" >
+</div>
+  <br>
+  <input class="btn btn-primary" type="submit" value="{{button}}" id="signup-btn">
+</form>
+</div>
+</div>
