@@ -41,13 +41,13 @@ router.post('/signup', async (req, res, next) => {
 
 //login
 
-router.get('/login', (req, res, next) => {
+router.get('/login', async(req, res, next) => {
   const config = {
     title: 'Inicia Sesión',
     action: '/login',
     button: 'Login'
   }
-  res.render('auth/form', config)
+  await res.render('auth/form', config)
 })
 
 router.post(
