@@ -39,18 +39,13 @@ router.post('/creategroup', async (req, res, next) => {
 })
 
 router.get('/news', async (req, res, next) => {
-  /////////////////////
   const find = await User.find()
-
   const users = find.map(function(element) {
         if(element.role === 'TEACHER'){
       console.log('estos son los buenos', element)
       return element
     }
   })
- 
-  
-  //////////
   const subjects = await Subject.find()
   res.render('../views/auth/news', {subjects, users})
 })
