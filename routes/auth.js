@@ -3,8 +3,11 @@ const User = require('../models/User')
 const passport = require('../config/passport')
 const Profile = require('../models/Profile')
 const uploadCloud = require('../config/cloudinary')
+const Subject = require('../models/Subject')
+
 
 //signup
+
 
 router.get('/signup', (req, res, next) => {
   const config = {
@@ -18,6 +21,7 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
+
     const {
       email,
       password,
@@ -34,16 +38,16 @@ router.post('/signup', async (req, res, next) => {
 
     res.redirect('/login')
 
-
   } catch (errors) {
     console.log(errors)
     res.send('Tu usuario ya esta en uso')
-
   }
 })
 
 
+
 //login
+
 
 router.get('/login', (req, res, next) => {
   const config = {
@@ -53,6 +57,7 @@ router.get('/login', (req, res, next) => {
   }
   res.render('auth/form', config)
 })
+
 
 router.post('/login', passport.authenticate('local'), async(req, res, next) => {
 
@@ -103,6 +108,7 @@ router.post('/profile/addSubject', async (req, res) => {
 
 //Logout
 
+
 router.get('/logout', (req, res, next) => {
   req.logout()
   res.redirect('/login')
@@ -113,7 +119,22 @@ function checkAuthentication(req, res, next) {
     next();
   } else {
     res.redirect('/login');
+
   }
 }
+
+// router.get('/createsubject', (req, res, next) => {
+//   res.render('../views/auth/subjects')
+// })
+
+// router.post('/createsubject', async (req, res, next) => {
+//   let { content } = req.body
+//   await Subject.create({ content })
+//   res.redirect('/')
+// })
+
+router.get('/news', (req, res, next) => {
+  res.render('../views/auth/news')
+})
 
 module.exports = router
