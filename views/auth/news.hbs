@@ -19,7 +19,13 @@
       <div class="top-teachers">
        
    <div class="post-subject">
-     <p>hol</p>
+  <p>hola</p>
+  {{#each users as |user|}}
+  <p>{{user.userName}}</p>
+  <p>{{user.role}}</p>
+  
+
+  {{/each}}
      
       </div>
       <a href="/auth/news" class="btn btn-primary">VER MÁS</a>

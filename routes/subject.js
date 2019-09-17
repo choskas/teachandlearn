@@ -39,14 +39,20 @@ router.post('/creategroup', async (req, res, next) => {
 })
 
 router.get('/news', async (req, res, next) => {
-  const user = await User.find()
-  console.log('<<<<<<<<<<<<<<<<<<<<<', user[0].role)
-  if (user.role === 'TEACHER') {
+  /////////////////////
+  const find = await User.find()
+
+  const users = find.map(function(element) {
+        if(element.role === 'TEACHER'){
+      console.log('estos son los buenos', element)
+      return element
+    }
+  })
+ 
   
-    res.render('../views/auth/news', user.username)
-  }
+  //////////
   const subjects = await Subject.find()
-  res.render('../views/auth/news', {subjects})
+  res.render('../views/auth/news', {subjects, users})
 })
 
 router.get('/test', (req, res, next) => {
