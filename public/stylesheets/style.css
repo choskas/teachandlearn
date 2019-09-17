@@ -39,14 +39,16 @@ a {
   flex-wrap: wrap; }
 
 .top-themes {
-  width: 80vw;
-  height: 30vh;
-  background-color: pink; }
+  background-color: pink;
+  display: flex;
+  flex-flow: row wrap; }
 
 .top-teachers {
   width: 80vw;
   height: 30vh;
-  background-color: #7ccfe4; }
+  background-color: #7ccfe4;
+  display: flex;
+  flex-flow: row wrap; }
 
 #teach-header {
   width: 100vw;
@@ -109,6 +111,7 @@ a {
 .profile-container {
   display: flex;
   flex-wrap: wrap;
+  flex-flow: row wrap;
   margin: 5%; }
 
 .logout-profile {
@@ -128,5 +131,12 @@ a {
 
 .new-photo {
   margin-top: 20px; }
+
+.news-headline {
+  height: 90px; }
+
+.headline {
+  padding: 15px;
+  color: pink; }
 
 /*# sourceMappingURL=style.css.map */

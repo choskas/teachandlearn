@@ -5,6 +5,7 @@ const Profile = require('../models/Profile')
 const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
+const Meeting = require('../models/Meeting')
 
 //signup
 router.get('/signup', (req, res, next) => {
@@ -35,6 +36,7 @@ router.post('/signup', async (req, res, next) => {
     res.send('Tu usuario ya esta en uso')
   }
 })
+
 //login
 router.get('/login', async (req, res, next) => {
   const config = {
@@ -89,4 +91,37 @@ function checkAuthentication(req, res, next) {
   }
 }
 
+router.get('/newmeeting', (req, res, next) => {
+  res.render('../views/auth/create-meeting')
+})
+
+////////////////
+
+router.post('/createmeeting', async (req, res, next) => {
+  const {
+    name,
+    teacher,
+    date,
+    location,
+    address,
+    coordinates,
+    description,
+    images,
+    group
+  } = req.body
+  await Meeting.create({
+    name,
+    teacher,
+    date,
+    location,
+    address,
+    coordinates,
+    description,
+    images,
+    group
+  })
+  res.redirect('/news')
+})
+
 module.exports = router
+

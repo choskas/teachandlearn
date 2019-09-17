@@ -1,13 +1,29 @@
     <div class="container">
-    <h2>TOP THEMES </h2>
+      <div class="news-headline"
+    <span class="headline">TOP THEMES </span>
+    </div>
     <div class="top-themes">
-      THE BIG BANG THEORY
-     <div>
-      {{#each subjects}}
-  
-      <p>{{this.themes}}</p>
-      {{/each}}
+
+    {{#each subjects}}
+  <div class="card mb-3" style="max-width: 540px;" >
+    <div class="row no-gutters">
+      <div class="col-md-2 col-lg-4">
+        <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
       </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{this.themes}}</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+            This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
+
+
+
     </div>
     
     <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
@@ -18,6 +34,7 @@
       <h2>TOP TEACHERS </h2>
       <div class="top-teachers">
        
+
    <div class="post-subject">
   <p>hola</p>
   {{#each users as |user|}}
@@ -28,6 +45,7 @@
   {{/each}}
      
       </div>
+
       <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
       <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
     </div>
