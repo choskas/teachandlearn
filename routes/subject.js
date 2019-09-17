@@ -5,6 +5,7 @@ const Profile = require('../models/Profile')
 const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
+const Meeting = require('../models/Meeting')
 
 
 router.get('/subject', (req, res, next) => {
@@ -20,13 +21,6 @@ router.post('/createsubject', async (req, res, next) => {
   await Subject.create({ name, themes, difficulty })
   res.redirect('/news')
 })
-
-// console.log('cosas creadasssssssss', name, themes, difficulty)
-//   const { id: profileId } = await User.findById(req.user)
-//   console.log('el iddddddd', profileId)
-//   await Subject.create(profileId, {
-//     name, themes, difficulty
-//   })
 
 router.get('/newgroup', (req, res, next) => {
   res.render('auth/create-group')
@@ -46,16 +40,10 @@ router.get('/news', async (req, res, next) => {
       return element
     }
   })
+  const meetings = await Meeting.find()
   const subjects = await Subject.find()
-  res.render('../views/auth/news', {subjects, users})
+  res.render('../views/auth/news', {subjects, users, meetings})
 })
-
-router.get('/test', (req, res, next) => {
-  res.render('../views/auth/subjects')
-})
-
-
-
 
 
 module.exports = router

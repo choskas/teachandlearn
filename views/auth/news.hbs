@@ -55,7 +55,10 @@
     <div class="container">
       <h2>NEXT SESSIONS </h2>
       <div class="top-teachers">
-        ESTUDIANDO JAVASCRIPT O QUE HACE?
+        {{#each meetings}}
+        <p>{{this.name}}</p>
+        <p>{{this.address}}</p>
+        {{/each}}
       </div>
       <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
     </div>
@@ -63,7 +66,7 @@
     <div class="container">
       <h2>THEMES FOR YOU </h2>
       <div class="top-teachers">
-        YA VIMOS QUE TE GUSTA PROGRAMAR <3 </div> <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+        YA VIMOS QUE TE GUSTA PROGRAMAR <3<a href="/auth/news" class="btn btn-primary">VER MÁS</a>
       </div>
 
       <div class="container">
