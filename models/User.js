@@ -19,7 +19,11 @@ const userSchema= new Schema({
   picPath: {
     type: String,
     default: 'http://www.herbeumont.be/macommune/vie-politique/conseil-communal/img/no-profile-image-png.png/image_view_fullscreen', 
-  }
+  },
+  profile: {
+    ref: 'Profile',
+    type: Schema.Types.ObjectId
+  },
 },{
   timestamps: true,
   versionKey: false
