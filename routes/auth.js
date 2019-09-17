@@ -5,6 +5,10 @@ const Profile = require('../models/Profile')
 const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 
+
+//signup
+
+
 router.get('/signup', (req, res, next) => {
   const config = {
     title: 'Registrate',
@@ -17,15 +21,33 @@ router.get('/signup', (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const user = await User.register({ ...req.body }, req.body.password)
-    console.log(user)
+
+    const {
+      email,
+      password,
+      userName,
+      role
+    } = req.body
+    const profile = await Profile.create({})
+    User.register(new User({
+      email,
+      userName,
+      role,
+      profile
+    }), password)
+
     res.redirect('/login')
-    console.log(user)
+
   } catch (errors) {
     console.log(errors)
     res.send('Tu usuario ya esta en uso')
   }
 })
+
+
+
+//login
+
 
 router.get('/login', (req, res, next) => {
   const config = {
@@ -36,24 +58,56 @@ router.get('/login', (req, res, next) => {
   res.render('auth/form', config)
 })
 
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
-  res.redirect('/profile')
+
+router.post('/login', passport.authenticate('local'), async(req, res, next) => {
+
+  await res.redirect('/profile')
+
 })
 
-router.get('/profile', checkAuthentication, (req, res, next) => {
+
+//PERFIL
+
+router.get('/profile', checkAuthentication, async (req, res, next) => {
+  const user = await User.findById(req.user.id).populate('profile')
   if (req.user.role === 'TEACHER') {
-    res.render('auth/profileTeacher', { user: req.userName })
+    console.log(user)
+    res.render('auth/profileTeacher', user)
   }
-  res.render('auth/profile', { user: req.userName })
+  res.render('auth/profile', user)
 })
 
-router.post('/profile', uploadCloud.single('photo'), async (req, res) => {
-  let { content } = req.body
-  let picName = req.file.originalname
-  let picPath = req.file.url
-  await Profile.create({ content, picName, picPath })
+router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
+
+
+  const {
+    url: img
+  } = req.file
+  const {
+    profile: profileId
+  } = await User.findById(req.user.id)
+  await Profile.findByIdAndUpdate(profileId, {
+    img
+  })
   res.redirect('/profile')
 })
+
+router.post('/profile/addSubject', async (req, res) => {
+ 
+  const {
+    subject
+  } = req.body
+  const {
+    profile: profileId
+  } = await User.findById(req.user.id)
+  await Profile.findByIdAndUpdate(profileId, {
+    subject
+  })
+  res.redirect('/profile')
+})
+
+//Logout
+
 
 router.get('/logout', (req, res, next) => {
   req.logout()
@@ -62,9 +116,10 @@ router.get('/logout', (req, res, next) => {
 
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
-    next()
+    next();
   } else {
-    res.redirect('/login')
+    res.redirect('/login');
+
   }
 }
 

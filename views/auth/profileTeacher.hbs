@@ -1,3 +1,31 @@
 <h2>teacher profile</h2>
 
 hi {{userName}}
+<br>
+<h2>Upload a new Photo</h2>
+<form action="/profile/add" method="post" enctype="multipart/form-data">
+
+
+
+  <label>Imagen</label>
+  <input type="file" name="photo">
+
+  <input type="submit" value="SAVE">
+</form>
+
+<img src="{{profile.img}}" alt="">
+
+<form action="/profile/addSubject" method="post">
+  <label><input name="subject" value="Matematicas" type="checkbox"> Matemáticas </label>
+  <label><input name="subject" value="Fisica" type="checkbox"> Física </label>
+  <label><input name="subject" value="Programacion" type="checkbox"> Programación </label>
+  <label><input name="subject" value="Literatura" type="checkbox"> Literatura </label>
+  <label><input name="subject" value="Quimica" type="checkbox"> Química </label>
+  <label><input name="subject" value="Biologia" type="checkbox"> Biología </label>
+  <button type="submit">SAVE</button>
+</form>
+
+<p>{{profile.subject}}</p>
+<a href="/logout">
+  <button>Logout</button>
+</a>
