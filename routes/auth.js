@@ -68,15 +68,15 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-// router.get('/createsubject', (req, res, next) => {
-//   res.render('../views/auth/subjects')
-// })
+router.get('/subject', (req, res, next) => {
+  res.render('auth/create-subject')
+})
 
-// router.post('/createsubject', async (req, res, next) => {
-//   let { content } = req.body
-//   await Subject.create({ content })
-//   res.redirect('/')
-// })
+router.post('/createsubject', async (req, res, next) => {
+  const { name, themes, difficulty } = req.body
+  await Subject.create({ name, themes, difficulty })
+  res.redirect('/news')
+})
 
 router.get('/news', (req, res, next) => {
   res.render('../views/auth/news')

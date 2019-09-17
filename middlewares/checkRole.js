@@ -1,7 +1,7 @@
-module.exports = role => (req,res,next)=>{
-  if(req.isAuthenticated() && req.user.role === role){
+module.exports = role => (req, res, next) => {
+  if (req.isAuthenticated() && req.user.role === role) {
     next()
-  }else{
+  } else {
     res.redirect('/login')
   }
 }

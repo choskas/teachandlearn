@@ -5,18 +5,7 @@ const subjectsSchema = new Schema(
   {
     name: {
       type: String,
-      enum: [
-        'Fisica',
-        'Matematicas',
-        'Programacion',
-        'Literatura',
-        'Quimica',
-        'Biologia',
-        'Marketing',
-        'Astronomia'
-      ],
-      unique: true,
-      required: true
+      unique: true
     },
     themes: {
       type: String,
@@ -27,20 +16,20 @@ const subjectsSchema = new Schema(
       type: Number,
       enum: [1, 5, 10],
       required: true
-    },
-    people: {
-      ref: 'User',
-      type: Array,
-      type: Schema.Types.ObjectId
-    },
-    sessions: {
-      ref: 'Session',
-      type: Schema.Types.ObjectId
-    },
-    groups: {
-      ref: 'StudyGroup',
-      type: Schema.Types.ObjectId
     }
+    // people: {
+    //   ref: 'User',
+    //   type: Array,
+    //   type: Schema.Types.ObjectId
+    // },
+    // sessions: {
+    //   ref: 'Session',
+    //   type: Schema.Types.ObjectId
+    // },
+    // groups: {
+    //   ref: 'StudyGroup',
+    //   type: Schema.Types.ObjectId
+    // }
   },
   {
     timestamps: true,
