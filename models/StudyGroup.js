@@ -8,21 +8,25 @@ const StudyGroupSchema = new Schema(
       unique: true,
       required: true
     },
+    themes: {
+      type: String,
+      required: true
+    },
 
     difficulty: {
       type: Number,
       enum: [1, 5, 10],
       required: true
-    },
-    people: {
-      ref: 'User',
-      type: Array,
-      type: Schema.Types.ObjectId
-    },
-    sessions: {
-      ref: 'StudyGroup',
-      type: Schema.Types.ObjectId
     }
+    // people: {
+    //   ref: 'User',
+    //   type: Array,
+    //   type: Schema.Types.ObjectId
+    // },
+    // sessions: {
+    //   ref: 'StudyGroup',
+    //   type: Schema.Types.ObjectId
+    // }
   },
   {
     timestamps: true,

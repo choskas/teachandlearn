@@ -4,6 +4,7 @@ const passport = require('../config/passport')
 const Profile = require('../models/Profile')
 const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
+const StudyGroup = require('../models/StudyGroup')
 
 //signup
 
@@ -109,6 +110,16 @@ router.post('/createsubject', async (req, res, next) => {
   const { name, themes, difficulty } = req.body
   await Subject.create({ name, themes, difficulty })
   res.redirect('/news')
+})
+
+router.get('/newgroup', (req, res, next) => {
+  res.render('auth/create-group')
+})
+
+router.post('/creategroup', async (req, res, next) => {
+  const { name, themes, difficulty } = req.body
+  await StudyGroup.create({ name, themes, difficulty })
+  res.redirect('/group')
 })
 
 router.get('/news', (req, res, next) => {

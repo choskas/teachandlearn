@@ -1,6 +1,5 @@
 body {
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background-color: #7ccfe4; }
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }
 
 a {
   color: #00b7ff; }
@@ -82,5 +81,52 @@ a {
 .logo {
   width: 120px;
   height: auto; }
+
+.profpic {
+  width: 260px; }
+
+.choose-subjects {
+  width: 200px;
+  background-color: lightsalmon; }
+
+.logout-profile {
+  margin: 30px; }
+
+.profile-left {
+  text-align: center;
+  display: inline-flexbox; }
+
+.your-choice {
+  position: relative;
+  text-align: center; }
+
+.profile-right {
+  display: inline-flexbox; }
+
+.profile-headline {
+  padding: 30px; }
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%; }
+
+.logout-profile {
+  width: 200px;
+  height: 30px; }
+
+.button-logout-profile {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #8ee4f0; }
+
+.subject-selection {
+  width: 300px;
+  padding: 50px; }
+
+.new-photo {
+  margin-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */
