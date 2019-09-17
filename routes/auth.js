@@ -135,6 +135,8 @@ router.get('/newmeeting', (req, res, next) => {
   res.render('../views/auth/create-meeting')
 })
 
+////////////////
+
 router.post('/createmeeting', async (req, res, next) => {
   const {
     name,
