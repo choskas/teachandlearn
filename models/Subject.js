@@ -16,6 +16,10 @@ const subjectsSchema = new Schema(
       type: Number,
       enum: [1, 5, 10],
       required: true
+    },
+    user: {
+      ref: 'User',
+      type: Schema.Types.ObjectId
     }
     // people: {
     //   ref: 'User',

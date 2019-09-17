@@ -24,6 +24,10 @@ const userSchema= new Schema({
     ref: 'Profile',
     type: Schema.Types.ObjectId
   },
+  subject: {
+    ref: 'Subject',
+    type: Schema.Types.ObjectId
+  }
 },{
   timestamps: true,
   versionKey: false

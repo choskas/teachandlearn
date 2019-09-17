@@ -78,7 +78,9 @@ app.locals.title = 'Teach & Learn'
 
 const index = require('./routes/index')
 const auth = require('./routes/auth')
+const subject = require('./routes/subject')
 app.use('/', index)
 app.use('/', auth)
+app.use('/', subject)
 
 module.exports = app

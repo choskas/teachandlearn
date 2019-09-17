@@ -7,7 +7,6 @@ const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 
 //signup
-
 router.get('/signup', (req, res, next) => {
   const config = {
     title: 'Registrate',
@@ -17,7 +16,6 @@ router.get('/signup', (req, res, next) => {
   }
   res.render('auth/form', config)
 })
-
 router.post('/signup', async (req, res, next) => {
   try {
     const { email, password, userName, role } = req.body
@@ -31,17 +29,14 @@ router.post('/signup', async (req, res, next) => {
       }),
       password
     )
-
     res.redirect('/login')
   } catch (errors) {
     console.log(errors)
     res.send('Tu usuario ya esta en uso')
   }
 })
-
 //login
-
-router.get('/login', async(req, res, next) => {
+router.get('/login', async (req, res, next) => {
   const config = {
     title: 'Inicia Sesión',
     action: '/login',
@@ -49,7 +44,6 @@ router.get('/login', async(req, res, next) => {
   }
   await res.render('auth/form', config)
 })
-
 router.post(
   '/login',
   passport.authenticate('local'),
@@ -57,9 +51,7 @@ router.post(
     await res.redirect('/profile')
   }
 )
-
 //PERFIL
-
 router.get('/profile', checkAuthentication, async (req, res, next) => {
   const user = await User.findById(req.user.id).populate('profile')
   if (req.user.role === 'TEACHER') {
@@ -68,7 +60,6 @@ router.get('/profile', checkAuthentication, async (req, res, next) => {
   }
   res.render('auth/profile', user)
 })
-
 router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
   const { url: img } = req.file
   const { profile: profileId } = await User.findById(req.user.id)
@@ -77,7 +68,6 @@ router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
   })
   res.redirect('/profile')
 })
-
 router.post('/profile/addSubject', async (req, res) => {
   const { subject } = req.body
   const { profile: profileId } = await User.findById(req.user.id)
@@ -86,14 +76,11 @@ router.post('/profile/addSubject', async (req, res) => {
   })
   res.redirect('/profile')
 })
-
 //Logout
-
 router.get('/logout', (req, res, next) => {
   req.logout()
   res.redirect('/login')
 })
-
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
     next()
@@ -101,33 +88,5 @@ function checkAuthentication(req, res, next) {
     res.redirect('/login')
   }
 }
-
-router.get('/subject', (req, res, next) => {
-  res.render('auth/create-subject')
-})
-
-router.post('/createsubject', async (req, res, next) => {
-  const { name, themes, difficulty } = req.body
-  await Subject.create({ name, themes, difficulty })
-  res.redirect('/news')
-})
-
-router.get('/newgroup', (req, res, next) => {
-  res.render('auth/create-group')
-})
-
-router.post('/creategroup', async (req, res, next) => {
-  const { name, themes, difficulty } = req.body
-  await StudyGroup.create({ name, themes, difficulty })
-  res.redirect('/group')
-})
-
-router.get('/news', (req, res, next) => {
-  res.render('../views/auth/news')
-})
-
-router.get('/test', (req, res, next) => {
-  res.render('../views/auth/subjects')
-})
 
 module.exports = router
