@@ -1,35 +1,69 @@
-<h2>teacher profile</h2>
-
-hi {{userName}}
-<br>
-<h2>Upload a new Photo</h2>
-<form action="/profile/add" method="post" enctype="multipart/form-data">
+<div class="profile-container">
 
 
+<div class="profile-left .col-md-4 .offset-md-4 .col-lg-4 .offset-lg-4">
+ 
+  <div class="profile-picture">
+    <img src="{{profile.img}}" alt="" class="profpic">
 
-  <label>Imagen</label>
+    <div class="new-photo">
+      <h5>Upload a new Photo</h5>
+    <form action="/profile/add" method="post" enctype="multipart/form-data">
+   
+  </div>
+ <div class="change-picture">
+
   <input type="file" name="photo">
-
+  <br>
   <input type="submit" value="SAVE">
-</form>
 
-<img src="{{profile.img}}" alt="">
+  </form>
+  </div>
+</div>
+</div>
 
-<form action="/profile/addSubject" method="post">
-  <label><input name="subject" value="Matematicas" type="checkbox"> Matemáticas </label>
-  <label><input name="subject" value="Fisica" type="checkbox"> Física </label>
-  <label><input name="subject" value="Programacion" type="checkbox"> Programación </label>
-  <label><input name="subject" value="Literatura" type="checkbox"> Literatura </label>
-  <label><input name="subject" value="Quimica" type="checkbox"> Química </label>
-  <label><input name="subject" value="Biologia" type="checkbox"> Biología </label>
-  <button type="submit">SAVE</button>
-</form>
+<div class="profile-right .col-md-4 .col-lg-4">
+<div class="row">
+  <div class="profile-headline">
+    <h2>teacher profile</h2>
+    hi {{userName}}
+  </div>
+  </div>
+  <br>
 
-<p>{{profile.subject}}</p>
-<br>
-<a href="/subject">
-  <h3>Create Subject</h3>
-</a>
-<a href="/logout">
-  <button>Logout</button>
-</a>
+    <div class="your-choice">
+    <h5>Please, select your subjects </h5>
+    </div>
+
+  <div class="subject-selection">
+    <form action="/profile/addSubject" method="post">
+      <label><input name="subject" value="Matematicas" type="checkbox"> Matemáticas </label>
+      <label><input name="subject" value="Fisica" type="checkbox"> Física </label>
+      <label><input name="subject" value="Programacion" type="checkbox"> Programación </label>
+      <label><input name="subject" value="Literatura" type="checkbox"> Literatura </label>
+      <label><input name="subject" value="Quimica" type="checkbox"> Química </label>
+      <label><input name="subject" value="Biologia" type="checkbox"> Biología </label>
+      <button type="submit">SAVE</button>
+    </form>
+  
+    <p>{{profile.subject}}</p>
+
+  </div>
+
+<div class="logout-profile">
+  <a href="/logout">
+    <button class="button-logout-profile">Logout</button>
+  </a>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+

@@ -15,6 +15,7 @@ a {
   height: 60vw;
   text-align: center;
   font-size: 0.8em;
+  border-radius: 10px;
 }
 
 #caja-registro {
@@ -22,6 +23,11 @@ a {
   flex-direction: column !important;
   justify-content: space-between !important;
   justify-items: center;
+}
+
+.input-group-text {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 #title {
@@ -50,5 +56,106 @@ a {
 .top-teachers {
   width: 80vw;
   height: 30vh;
-  background-color: lightblue;
+  background-color: #7ccfe4;
+}
+
+#teach-header {
+  width: 100vw;
+  height: 450px;
+  background-color: #7ccfe4;
+}
+
+#teach-header img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+
+#index-total {
+  background-color: #7ccfe4;
+  font-family: 'Lora', serif;
+}
+
+.action-button {
+  height: 40px;
+  width: 130px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+#index-title {
+  padding: 40px;
+  position: relative;
+  text-align: center;
+}
+.nav-item {
+  padding: 10px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.profpic {
+  width: 260px;
+}
+
+.choose-subjects {
+  width: 200px;
+  background-color: lightsalmon;
+}
+
+.logout-profile {
+  margin: 30px;
+}
+
+.profile-left {
+  //background-color: lightgreen;
+
+  text-align: center;
+  display: inline-flexbox;
+}
+.your-choice {
+  position: relative;
+  text-align: center;
+}
+
+.profile-right {
+  //background-color: lightsalmon;
+  display: inline-flexbox;
+}
+
+.profile-headline {
+  padding: 30px;
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+
+.logout-profile {
+  width: 200px;
+  height: 30px;
+}
+
+.button-logout-profile {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #8ee4f0;
+}
+
+.subject-selection {
+  width: 300px;
+  padding: 50px;
+}
+
+.new-photo {
+  margin-top: 20px;
 }
