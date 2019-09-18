@@ -32,12 +32,15 @@
     <li class="list-group-item">{{this.date}}</li>
     <li class="list-group-item">{{this.adress}}</li>
   </ul>
+   <div class="card-body">
+    <form action="{{this._id}}/meetingregister" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Join meeting">
+    </form>
    {{#each this.assistants}}
      <p class="card-text">{{this.userName}}
     </p>
     {{/each}}
-  <div class="card-body">
-    <input type="submit" value="Join meeting">
+ 
   </div>
 </div>
 
