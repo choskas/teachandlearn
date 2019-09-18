@@ -124,4 +124,3 @@ router.post('/createmeeting', async (req, res, next) => {
 })
 
 module.exports = router
-

@@ -34,21 +34,38 @@ a {
 #signup-btn {
   margin-top: 5vh; }
 
+.the-space {
+  margin: 15px; }
+
 .container {
   display: flex;
   flex-wrap: wrap; }
 
 .top-themes {
-  background-color: pink;
-  display: flex;
-  flex-flow: row wrap; }
+  height: 300px;
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; }
+  .top-themes .card {
+    display: inline-block; }
 
-.top-teachers {
-  width: 80vw;
-  height: 30vh;
-  background-color: #7ccfe4;
-  display: flex;
-  flex-flow: row wrap; }
+.teach-foot {
+  width: 100vw;
+  height: 450px;
+  background-color: #7ccfe4; }
+
+.teach-foot img {
+  text-align: center; }
+
+.top-cont {
+  height: 300px;
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; }
+  .top-cont .card {
+    display: inline-block; }
 
 #teach-header {
   width: 100vw;
@@ -129,6 +146,11 @@ a {
   width: 300px;
   padding: 50px; }
 
+.subject-buttons {
+  display: flex;
+  display: inline-block;
+  margin: 15px; }
+
 .new-photo {
   margin-top: 20px; }
 
@@ -138,5 +160,11 @@ a {
 .headline {
   padding: 15px;
   color: pink; }
+
+.mb-3 {
+  margin: 10px; }
+
+p.card-text {
+  width: 20px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,75 +1,149 @@
-    <div class="container">
-      <div class="news-headline"
-     class="headline">TOP THEMES </span>
+ <div class="container">
+
+   <div class="the-space">
+    <h2>THE SUBJECTS</h2> 
     </div>
+     
     <div class="top-themes">
 
-    {{#each subjects}}
-  <div class="card mb-3" style="max-width: 540px;" >
+        {{#each subjects}}
+  <div class="card mb-3" style="width: 480px;" >
     <div class="row no-gutters">
-      <div class="col-md-2 col-lg-4">
+      <div class="col-md-4">
         <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-3">
         <div class="card-body">
           <h5 class="card-title">{{this.themes}}</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-            This content is a little bit longer.</p>
+          <p class="card-text">This is a wider card with supporting text.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
     </div>
   </div>
+
 {{/each}}
 
 
+</div>
 
-    </div>
-    
+<div class=subject-buttons>
     <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
     <a href="/auth/news" class="btn btn-primary">CREAR</a>
-    </div>
+  </div>
 
     <div class="container">
       <h2>TOP TEACHERS </h2>
-      <div class="top-teachers">
+      <div class="top-cont">
        
-
-   <div class="post-subject">
-  <p>hola</p>
-  {{#each users as |user|}}
-  <p>{{user.userName}}</p>
-  <p>{{user.role}}</p>
-  
-
-  {{/each}}
-     
+      {{#each subjects}}
+      <div class="card mb-3" style="width: 480px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-3">
+            <div class="card-body">
+              <h5 class="card-title">{{this.themes}}</h5>
+              <p class="card-text">This is a wider card with supporting text.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
-      <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
+      
+      {{/each}}
+      
     </div>
+    </div>
+    <div class=subject-buttons>
+    <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+    <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
     </div>
 
 
     <div class="container">
       <h2>NEXT SESSIONS </h2>
-      <div class="top-teachers">
-        ESTUDIANDO JAVASCRIPT O QUE HACE?
+      <div class="top-cont">
+      {{#each subjects}}
+      <div class="card mb-3" style="width: 480px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
+          </div>
+          <div class="col-md-3">
+            <div class="card-body">
+              <h5 class="card-title">{{this.themes}}</h5>
+              <p class="card-text">This is a wider card with supporting text.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
       </div>
+      
+      {{/each}}
+      </div>
+      </div>
+      <div class=subject-buttons>
       <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
-    </div>
+      </div>
 
     <div class="container">
       <h2>THEMES FOR YOU </h2>
-      <div class="top-teachers">
-        YA VIMOS QUE TE GUSTA PROGRAMAR <3 </div> <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+      <div class="top-cont">
+    {{#each subjects}}
+    <div class="card mb-3" style="width: 480px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-3">
+          <div class="card-body">
+            <h5 class="card-title">{{this.themes}}</h5>
+            <p class="card-text">This is a wider card with supporting text.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
       </div>
+    </div>
+    
+    {{/each}}
+      </div> 
+      <div class=subject-buttons>
+        <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+      </div>
+      </div>
+     
 
       <div class="container">
         <h2>STUDY GROUPS </h2>
-        <div class="top-teachers">
-          UNETE A LA FIESTA, UNETE A LA FIESTA </div>
-        <a href="/auth/news" class="btn btn-primary">EXPLORE GROUPS</a>
-        <a href="/auth/news" class="btn btn-primary">CREATE GROUP</a>
+        <div class="top-cont">
+        {{#each subjects}}
+        <div class="card mb-3" style="width: 480px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
+            </div>
+            <div class="col-md-3">
+              <div class="card-body">
+                <h5 class="card-title">{{this.themes}}</h5>
+                <p class="card-text">This is a wider card with supporting text.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {{/each}}
+        </div>
+        <div class=subject-buttons>
+          <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+        </div>
+
+      </div>
+<div id="teach-foot">
+  <img src="https://i.ibb.co/1qTkNd8/bottom-news.png " />
+</div>
+
+
       </div>
