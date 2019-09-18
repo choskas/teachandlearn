@@ -1,7 +1,33 @@
-<h2>holaaaa</h2>
 
+<div class="jumbotron"
+  style="background-image: url(https://i.ibb.co/C58TRWR/astrology-astronomy-background-2694037.jpg); background-size: 100%;">
+  <div class="group-header-text">
+    <h1 class="display-4">Subjects</h1>
+    <p class="lead">All subjects available for you to learn</p>
+
+    <p class="groups-description">Need a particular theme? Create one!</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+
+
+<div class="col-md-10 offset-md-2">
+
+<div class="container">
 {{#each subjects}}
-<p>{{this.name}}</p>
-<p>{{this.themes}}</p>
-<p>{{this.difficulty}}</p>
+<div class="card" style="width: 280px" id="sub-div" >
+  <img src="https://i.ibb.co/C58TRWR/astrology-astronomy-background-2694037.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+  
+  </div>
+  <ul class="list-group list-group-flush"></ul>
+      <p class="card-text">{{this.themes}}</p>
+    <li class="list-group-item">DIFFICULTY: {{this.difficulty}}</li>
+  </ul>
+</div>
 {{/each}}
+</div>
+</div>
+</div>

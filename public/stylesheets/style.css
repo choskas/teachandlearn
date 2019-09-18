@@ -2,7 +2,8 @@ body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff; }
+  color: #00b7ff;
+  font-weight: bolder; }
 
 #registro {
   display: flex;
@@ -165,6 +166,39 @@ a {
   margin: 10px; }
 
 p.card-text {
-  width: 20px; }
+  width: 20px;
+  white-space: nowrap;
+  padding: 20px; }
+
+#sub-div {
+  margin-top: 50px; }
+
+#meeting-card {
+  margin: 15px; }
+
+#group-card {
+  margin: 15px; }
+
+.lead {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.2) 0px 3px 2px; }
+
+.display-4 {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.2) 0px 3px 2px; }
+
+.my-4 {
+  color: white; }
+
+.groups-description {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.2) 0px 3px 2px; }
+
+.group-header-text {
+  position: relative;
+  text-align: center; }
+
+#teacher-card {
+  margin: 15px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,27 @@
-<h2>holaaaaa</h2>
+
+<div class="jumbotron"
+  style="background-image: url(https://i.ibb.co/PZp8nGm/adult-business-computer-2422293.jpg); background-size: 100%;">
+  <div class="group-header-text">
+    <h1 class="display-4">Teachers</h1>
+    <p class="lead">All available tutors</p>
+
+    <p class="groups-description">Find the right one for you</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+<div class="col-md-10 offset-md-1">
+<div class="container">
 {{#each users as |user|}}
-<p>{{user.userName}}</p>
+<div class="card" style="width: 18rem;" id="teacher-card">
+  <img src="{{user.profile.img}}" class="card-img-top" >
+  <div class="card-body">
+    <p class="card-text"><b>{{user.userName}}</b></p>
 <p>{{user.role}}</p>
-<img src="{{user.profile.img}}" alt="">
+   
+  </div>
+</div>
 {{/each}}
 
+</div>
+</div>

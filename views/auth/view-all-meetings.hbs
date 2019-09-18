@@ -1,9 +1,46 @@
-<h2>all sessions</h2>
-<h2>holaaaa</h2>
+
+<div class="jumbotron"
+  style="background-image: url(https://i.ibb.co/jTwN52C/blond-hair-chairs-coffee-2041627.jpg); background-size: 100%;">
+  <div class="group-header-text">
+    <h1 class="display-4">Meetings</h1>
+    <p class="lead">Ready to learn? </p>
+
+    <p class="groups-description">Join a study session</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+
+<div class="col-md-10 offset-md-2">
+
+<div class="container">
 
 {{#each meetings}}
-<p>{{this.teacher}}</p>
-<p>{{this.date}}</p>
-<p>{{this.adress}}</p>
-<p>{{this.description}}</p>
+
+<div class="card" style="width: 18rem;" id="meeting-card">
+  <img src="https://i.ibb.co/gWjqGf2/adolescent-connection-discussion-1595391.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Next Meeting</h5>
+    <p class="card-text">{{this.description}}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{this.teacher}}</li>
+    <li class="list-group-item">{{this.date}}</li>
+    <li class="list-group-item">{{this.adress}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Join the meeting</a>
+    <a href="#" class="card-link">See Group </a>
+  </div>
+</div>
+
+
 {{/each}}
+
+</div>
+
+</div>
+
+
+

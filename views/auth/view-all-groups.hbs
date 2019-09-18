@@ -1,9 +1,32 @@
-<h2>groups </h2>
+<div class="jumbotron" style="background-image: url(https://i.ibb.co/vqtB5BW/adult-chair-conversation-2422290.jpg); background-size: 100%;">
+<div class="group-header-text">
+  <h1 class="display-4">Study Groups</h1>
+  <p class="lead">Find your tribe or create your own</p>
+
+  <p class="groups-description">In this section you'll find all available groups</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+</div>
+
+<div class="col-md-10 offset-md-1">
+
+<div class="container">
 
 {{#each grupos}}
-
-<p>{{this.name}}</p>
-<p>{{this.themes}}</p>
-<p>{{this.difficulty}}</p>
+<div class="card" style="width: 18rem;" id="group-card">
+  <img src="https://i.ibb.co/vqtB5BW/adult-chair-conversation-2422290.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><p>{{this.name}}</p></h5>
+    <p class="card-text"><p>{{this.themes}}</p>
+    <p class="card-text">
+      <p>{{this.difficulty}}</p>
+    <a href="#" class="btn btn-primary">Join Group</a>
+  </div>
+</div>
 
 {{/each}}
+</div>
+
+</div>
+
+

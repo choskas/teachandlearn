@@ -89,5 +89,4 @@ app.use('/', meeting)
 app.use('/', studyGroup)
 app.use('/', viewAll)
 
-
 module.exports = app
