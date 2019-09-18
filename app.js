@@ -79,8 +79,10 @@ app.locals.title = 'Teach & Learn'
 const index = require('./routes/index')
 const auth = require('./routes/auth')
 const subject = require('./routes/subject')
+const meeting = require('./routes/meeting')
 app.use('/', index)
 app.use('/', auth)
 app.use('/', subject)
+app.use('/', meeting)
 
 module.exports = app

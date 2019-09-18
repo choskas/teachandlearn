@@ -91,36 +91,7 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-router.get('/newmeeting', (req, res, next) => {
-  res.render('../views/auth/create-meeting')
-})
 
-////////////////
 
-router.post('/createmeeting', async (req, res, next) => {
-  const {
-    name,
-    teacher,
-    date,
-    location,
-    address,
-    coordinates,
-    description,
-    images,
-    group
-  } = req.body
-  await Meeting.create({
-    name,
-    teacher,
-    date,
-    location,
-    address,
-    coordinates,
-    description,
-    images,
-    group
-  })
-  res.redirect('/news')
-})
 
 module.exports = router
