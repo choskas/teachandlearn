@@ -31,7 +31,8 @@ const userSchema= new Schema({
   meeting:{
     ref: 'Meeting',
     type: Schema.Types.ObjectId
-  }
+  },
+  register: Boolean,
 },{
   timestamps: true,
   versionKey: false

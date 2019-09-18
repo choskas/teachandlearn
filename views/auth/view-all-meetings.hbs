@@ -6,5 +6,13 @@
 <p>{{this.date}}</p>
 <p>{{this.adress}}</p>
 <p>{{this.description}}</p>
+
 <img src="{{this.img}}" alt="">
+{{#each this.assistants}}
+<p>{{this.userName}}</p>
 {{/each}}
+<form action="{{this._id}}/meetingregister" method="POST" enctype="multipart/form-data">
+<input type="submit" value="Registrate">
+</form>
+{{/each}}
+

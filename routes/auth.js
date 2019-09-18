@@ -58,9 +58,9 @@ router.get('/profile', checkAuthentication, async (req, res, next) => {
   const user = await User.findById(req.user.id).populate('profile')
   if (req.user.role === 'TEACHER') {
     console.log(user)
-    res.render('auth/profileTeacher', user)
+   await res.render('auth/profileTeacher', user)
   }
-  res.render('auth/profile', user)
+  await res.render('auth/profile', user)
 })
 router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
   const { url: img } = req.file
