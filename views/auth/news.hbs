@@ -14,9 +14,9 @@
       </div>
       <div class="col-md-3">
         <div class="card-body">
-          <h5 class="card-title">{{this.themes}}</h5>
-          <p class="card-text">This is a wider card with supporting text.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">{{this.themes}}</p>
+          <p class="card-text"><small class="text-muted">{{this.difficulty}}</small></p>
         </div>
       </div>
     </div>
@@ -28,15 +28,15 @@
 </div>
 
 <div class=subject-buttons>
-    <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
-    <a href="/auth/news" class="btn btn-primary">CREAR</a>
+    <a href="/viewAllSubjects" class="btn btn-primary">VER MÁS</a>
+ 
   </div>
 
     <div class="container">
       <h2>TOP TEACHERS </h2>
       <div class="top-cont">
        
-      {{#each subjects}}
+      {{#each users as |user|}}
       <div class="card mb-3" style="width: 480px;">
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -44,9 +44,9 @@
           </div>
           <div class="col-md-3">
             <div class="card-body">
-              <h5 class="card-title">{{this.themes}}</h5>
+              <h5 class="card-title">{{user.userName}}</h5>
               <p class="card-text">This is a wider card with supporting text.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted">{{user.role}}</small></p>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
     </div>
     </div>
     <div class=subject-buttons>
-    <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+    <a href="/viewAllTeachers" class="btn btn-primary">VER MÁS</a>
     <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
     </div>
 
@@ -65,7 +65,7 @@
     <div class="container">
       <h2>NEXT SESSIONS </h2>
       <div class="top-cont">
-      {{#each subjects}}
+      {{#each meetings}}
       <div class="card mb-3" style="width: 480px;">
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -73,9 +73,9 @@
           </div>
           <div class="col-md-3">
             <div class="card-body">
-              <h5 class="card-title">{{this.themes}}</h5>
-              <p class="card-text">This is a wider card with supporting text.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{this.name}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <p class="card-text"><small class="text-muted">{{this.date}}</small></p>
             </div>
           </div>
         </div>
@@ -85,40 +85,16 @@
       </div>
       </div>
       <div class=subject-buttons>
-      <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+      <a href="/viewAllMeetings" class="btn btn-primary">VER MÁS</a>
       </div>
 
-    <div class="container">
-      <h2>THEMES FOR YOU </h2>
-      <div class="top-cont">
-    {{#each subjects}}
-    <div class="card mb-3" style="width: 480px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="https://i.ibb.co/qRphY07/animal-bee-biology-2047420.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-md-3">
-          <div class="card-body">
-            <h5 class="card-title">{{this.themes}}</h5>
-            <p class="card-text">This is a wider card with supporting text.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    {{/each}}
-      </div> 
-      <div class=subject-buttons>
-        <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
-      </div>
-      </div>
+ 
      
 
       <div class="container">
         <h2>STUDY GROUPS </h2>
         <div class="top-cont">
-        {{#each subjects}}
+        {{#each grupos}}
         <div class="card mb-3" style="width: 480px;">
           <div class="row no-gutters">
             <div class="col-md-4">
@@ -126,9 +102,9 @@
             </div>
             <div class="col-md-3">
               <div class="card-body">
-                <h5 class="card-title">{{this.themes}}</h5>
-                <p class="card-text">This is a wider card with supporting text.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.themes}}</p>
+                <p class="card-text"><small class="text-muted">{{this.difficulty}}</small></p>
               </div>
             </div>
           </div>
@@ -137,7 +113,8 @@
         {{/each}}
         </div>
         <div class=subject-buttons>
-          <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+          <a href="/viewAllGroups" class="btn btn-primary">Explore Groups</a>
+          <a href="/newGroup" class="btn btn-primary">Create Group</a>
         </div>
 
       </div>
