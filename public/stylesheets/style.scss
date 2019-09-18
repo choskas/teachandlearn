@@ -1,5 +1,5 @@
 body {
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 
 a {
@@ -65,13 +65,14 @@ a {
   }
 }
 
-.teach-foot {
+#teach-foot {
   width: 100vw;
   height: 450px;
-  background-color: #7ccfe4;
 }
-.teach-foot img {
-  text-align: center;
+#teach-foot img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .top-cont {
@@ -99,9 +100,21 @@ a {
   padding: 40px;
 }
 
+#news-header {
+  width: 100vw;
+  height: 400px;
+  background-color: #7ccfe4;
+}
+
+#news-header img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+}
+
 #index-total {
   background-color: #7ccfe4;
-  font-family: 'Lora', serif;
 }
 
 .action-button {
@@ -177,6 +190,7 @@ a {
   height: 50px;
   border-radius: 10px;
   background-color: #8ee4f0;
+  box-shadow: 4px 18px 5px -13px rgba(0, 0, 0, 0.28);
 }
 
 .subject-selection {
@@ -251,4 +265,9 @@ p.card-text {
 
 #teacher-card {
   margin: 15px;
+}
+.small-button{
+    box-shadow: 4px 18px 5px -13px rgba(0, 0, 0, 0.28);
+    background-color:#E5F3F5 ;
+    border-radius: 5px;
 }
