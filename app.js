@@ -80,9 +80,14 @@ const index = require('./routes/index')
 const auth = require('./routes/auth')
 const subject = require('./routes/subject')
 const meeting = require('./routes/meeting')
+const studyGroup = require('./routes/studygroup')
+const viewAll = require('./routes/viewAll')
 app.use('/', index)
 app.use('/', auth)
 app.use('/', subject)
 app.use('/', meeting)
+app.use('/', studyGroup)
+app.use('/', viewAll)
+
 
 module.exports = app
