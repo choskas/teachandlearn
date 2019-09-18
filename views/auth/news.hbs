@@ -27,11 +27,8 @@
 
 </div>
 
-
-    </div>
-    
-    <a href="/viewAllSubjects" class="btn btn-primary">VER MÁS</a>
-
+<div class=subject-buttons>
+    <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
     <a href="/auth/news" class="btn btn-primary">CREAR</a>
   </div>
 
@@ -54,11 +51,10 @@
           </div>
         </div>
       </div>
-
-
-      <a href="/viewAllTeachers" class="btn btn-primary">VER MÁS</a>
-      <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
-
+      
+      {{/each}}
+      
+    </div>
     </div>
     <div class=subject-buttons>
     <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
@@ -68,7 +64,6 @@
 
     <div class="container">
       <h2>NEXT SESSIONS </h2>
-
       <div class="top-cont">
       {{#each subjects}}
       <div class="card mb-3" style="width: 480px;">
@@ -87,21 +82,14 @@
       </div>
       
       {{/each}}
-
       </div>
-
       </div>
       <div class=subject-buttons>
       <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
       </div>
 
-      <a href="/viewAllMeetings" class="btn btn-primary">VER MÁS</a>
-    </div>
-
-
     <div class="container">
       <h2>THEMES FOR YOU </h2>
-
       <div class="top-cont">
     {{#each subjects}}
     <div class="card mb-3" style="width: 480px;">
@@ -123,14 +111,12 @@
       </div> 
       <div class=subject-buttons>
         <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
-
       </div>
       </div>
      
 
       <div class="container">
         <h2>STUDY GROUPS </h2>
-
         <div class="top-cont">
         {{#each subjects}}
         <div class="card mb-3" style="width: 480px;">
@@ -160,12 +146,4 @@
 </div>
 
 
-
-        <div class="top-teachers">
-          {{#each grupos}}
-          <p>{{this.name}}</p>
-          <p>{{this.themes}}</p>
-          {{/each}}
-          UNETE A LA FIESTA, UNETE A LA FIESTA </div>
-        <a href="/viewAllGroups" class="btn btn-primary">EXPLORE GROUPS</a>
-        <a href="/newgroup" class="btn btn-primary">CREATE GROUP </a>
+      </div>
