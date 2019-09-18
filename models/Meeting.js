@@ -3,11 +3,7 @@ const { Schema, model } = require('mongoose')
 
 const meetingSchema = new Schema(
   {
-    name: {
-      type: String,
-      unique: true
-      //required: true
-    },
+
 
     teacher: {
       //ype: Schema.Types.ObjectId,

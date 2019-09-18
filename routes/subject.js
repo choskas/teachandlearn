@@ -22,27 +22,21 @@ router.post('/createsubject', async (req, res, next) => {
   res.redirect('/news')
 })
 
-router.get('/newgroup', (req, res, next) => {
-  res.render('auth/create-group')
-})
 
-router.post('/creategroup', async (req, res, next) => {
-  const { name, themes, difficulty } = req.body
-  await StudyGroup.create({ name, themes, difficulty })
-  res.redirect('/group')
-})
 
 router.get('/news', async (req, res, next) => {
-  const find = await User.find()
+  const find = await User.find().limit(3)
   const users = find.map(function(element) {
         if(element.role === 'TEACHER'){
       console.log('estos son los buenos', element)
       return element
     }
   })
-  const meetings = await Meeting.find()
-  const subjects = await Subject.find()
-  res.render('../views/auth/news', {subjects, users, meetings})
+  console.log('los perfilessssssss', users[0].profile)
+  const grupos= await StudyGroup.find().limit(5)
+  const meetings = await Meeting.find().limit(5)
+  const subjects = await Subject.find().limit(5)
+  res.render('../views/auth/news', {subjects, users, meetings, grupos})
 })
 
 

@@ -26,7 +26,7 @@
 
     </div>
     
-    <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+    <a href="/viewAllSubjects" class="btn btn-primary">VER MÁS</a>
     <a href="/auth/news" class="btn btn-primary">CREAR</a>
     </div>
 
@@ -46,7 +46,7 @@
      
       </div>
 
-      <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+      <a href="/viewAllTeachers" class="btn btn-primary">VER MÁS</a>
       <a href="/auth/news" class="btn btn-primary">UNIRSE</a>
     </div>
     </div>
@@ -60,7 +60,7 @@
         <p>{{this.address}}</p>
         {{/each}}
       </div>
-      <a href="/auth/news" class="btn btn-primary">VER MÁS</a>
+      <a href="/viewAllMeetings" class="btn btn-primary">VER MÁS</a>
     </div>
 
     <div class="container">
@@ -72,7 +72,11 @@
       <div class="container">
         <h2>STUDY GROUPS </h2>
         <div class="top-teachers">
+          {{#each grupos}}
+          <p>{{this.name}}</p>
+          <p>{{this.themes}}</p>
+          {{/each}}
           UNETE A LA FIESTA, UNETE A LA FIESTA </div>
-        <a href="/auth/news" class="btn btn-primary">EXPLORE GROUPS</a>
-        <a href="/auth/news" class="btn btn-primary">CREATE GROUP</a>
+        <a href="/viewAllGroups" class="btn btn-primary">EXPLORE GROUPS</a>
+        <a href="/newgroup" class="btn btn-primary">CREATE GROUP</a>
       </div>

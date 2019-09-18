@@ -1,4 +1,42 @@
-<h1>hola</h1>
+<div class="profile-container">
+
+
+<div class="profile-left col-md-4 offset-md-2 ">
+ 
+  <div class="profile-picture">
+    <img src="{{profile.img}}" alt="" class="profpic">
+
+    <div class="new-photo">
+      <h5>Upload a new Photo</h5>
+    <form action="/profile/add" method="post" enctype="multipart/form-data">
+   
+  </div>
+ <div class="change-picture">
+
+  <input type="file" name="photo">
+  <br>
+  <input type="submit" value="SAVE">
+
+  </form>
+  </div>
+</div>
+</div>
+
+<div class="profile-right .col-md-4 .col-lg-4">
+<div class="row">
+  <div class="profile-headline">
+    <h2>Perfil de Alumno</h2>
+    hi {{userName}}
+  </div>
+  </div>
+
+  <div class="logout-profile">
+  <a href="/newgroup">
+    <button class="button-logout-profile">Crear Grupo de Estudio</button>
+  </a>
+
+
+</div>
 
 <a href="/logout">
 <button>Logout</button>
