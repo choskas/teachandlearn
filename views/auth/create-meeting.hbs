@@ -1,6 +1,6 @@
 <div class=" col-md-4 offset-md-4 ">
 
-<form action="/createmeeting" method="POST">
+<form action="/createmeeting" method="POST" enctype="multipart/form-data">
   <h2>Create a meeting</h2>
   <label for="name">Nombre</label>
   <input type="text" name="name" placeholder="Name your study session">
@@ -27,8 +27,21 @@
 <div id='map' style='display: inline-flex;width: 400px; height: 300px;'></div>
 
 <br>
+  
 <label for="group"> Group</label>
 <input type="text" name="group">
+<div class="new-photo">
+  
+      <h5>Upload a new Photo</h5>
+   
+   
+  </div>
+   <div class="change-picture">
+
+  <input type="file" name="photo">
+  <br>
+  <input type="submit" value="SAVE">
+</form>
 
 
 <button type="submit">Create session</button>

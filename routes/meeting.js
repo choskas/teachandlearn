@@ -8,7 +8,8 @@ const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
 
 
-router.post('/createmeeting', async (req, res, next) => {
+router.post('/createmeeting',uploadCloud.single('photo'), async (req, res, next) => {
+  const { url: img } = req.file
   const {
     name,
     teacher,
@@ -17,7 +18,6 @@ router.post('/createmeeting', async (req, res, next) => {
     address,
     coordinates,
     description,
-    images,
     group
   } = req.body
   await Meeting.create({
@@ -28,9 +28,13 @@ router.post('/createmeeting', async (req, res, next) => {
     address,
     coordinates,
     description,
-    images,
+    img,
     group
   })
+  
+  
+  
+  
   res.redirect('/news')
 })
 

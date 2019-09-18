@@ -20,7 +20,8 @@ const subjectsSchema = new Schema(
     user: {
       ref: 'User',
       type: Schema.Types.ObjectId
-    }
+    },
+    img: String
     // people: {
     //   ref: 'User',
     //   type: Array,

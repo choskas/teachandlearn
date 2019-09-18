@@ -27,6 +27,10 @@ const userSchema= new Schema({
   subject: {
     ref: 'Subject',
     type: Schema.Types.ObjectId
+  },
+  meeting:{
+    ref: 'Meeting',
+    type: Schema.Types.ObjectId
   }
 },{
   timestamps: true,

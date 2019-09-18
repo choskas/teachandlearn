@@ -13,10 +13,11 @@ router.get('/newgroup', async(req, res, next) => {
   res.render('auth/create-group')
 })
 
-router.post('/creategroup', async (req, res, next) => {
+router.post('/creategroup',uploadCloud.single('photo'),  async (req, res, next) => {
+  const { url: img } = req.file
   const { name, themes, difficulty } = req.body
-  await StudyGroup.create({ name, themes, difficulty })
-  res.render('auth/group', {name, themes, difficulty})
+  await StudyGroup.create({ name, themes, difficulty, img })
+  res.render('auth/group', {name, themes, difficulty, img})
 })
 
 

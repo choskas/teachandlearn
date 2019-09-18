@@ -37,8 +37,8 @@ const meetingSchema = new Schema(
     description: {
       type: String
     },
-    images: {
-      type: [String]
+    img: {
+      type: String
       //required: true
     },
     name: {
