@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose')
 const meetingSchema = new Schema(
   {
 
-
+    assistants: [],
     teacher: {
       //ype: Schema.Types.ObjectId,
       //required: true,
@@ -37,15 +37,18 @@ const meetingSchema = new Schema(
     description: {
       type: String
     },
-    images: {
-      type: [String]
+    img: {
+      type: String
       //required: true
     },
     name: {
       type: String
       //required: true
+    },
+    user:{
+      ref: 'User',
+      type: Schema.Types.ObjectId
     }
-
     // group: {
     //   type: String,
     //   required: true,

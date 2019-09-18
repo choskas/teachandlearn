@@ -27,7 +27,12 @@ const userSchema= new Schema({
   subject: {
     ref: 'Subject',
     type: Schema.Types.ObjectId
-  }
+  },
+  meeting:{
+    ref: 'Meeting',
+    type: Schema.Types.ObjectId
+  },
+  register: Boolean,
 },{
   timestamps: true,
   versionKey: false

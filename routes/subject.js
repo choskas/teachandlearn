@@ -12,20 +12,20 @@ router.get('/subject', (req, res, next) => {
   res.render('auth/create-subject')
 })
 
-router.post('/createsubject', async (req, res, next) => {
-  
+router.post('/createsubject',uploadCloud.single('photo'), async (req, res, next) => {
+  const { url: img } = req.file
   const { name, themes, difficulty} = req.body
   
   console.log('cosas creadasssssssss', name, themes, difficulty)
 
-  await Subject.create({ name, themes, difficulty })
+  await Subject.create({ name, themes, difficulty, img })
   res.redirect('/news')
 })
 
 
 
 router.get('/news', async (req, res, next) => {
-  const find = await User.find().limit(3)
+  const find = await User.find().populate('profile').limit(5)
   const users = find.map(function(element) {
         if(element.role === 'TEACHER'){
       console.log('estos son los buenos', element)
