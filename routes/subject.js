@@ -6,25 +6,26 @@ const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
+const isLoggedIn = require('../middlewares/isLoggedIn')
 
-
-router.get('/subject', (req, res, next) => {
+router.get('/subject', isLoggedIn('/login'), (req, res, next) => {
   res.render('auth/create-subject')
 })
 
 router.post('/createsubject',uploadCloud.single('photo'), async (req, res, next) => {
   const { url: img } = req.file
   const { name, themes, difficulty} = req.body
+  const {_id:owner} = req.user
   
   console.log('cosas creadasssssssss', name, themes, difficulty)
 
-  await Subject.create({ name, themes, difficulty, img })
+  await Subject.create({ name, themes, difficulty, img, owner })
   res.redirect('/news')
 })
 
 
 
-router.get('/news', async (req, res, next) => {
+router.get('/news',isLoggedIn('/login'), async (req, res, next) => {
   const find = await User.find().populate('profile').limit(5)
   const users = find.map(function(element) {
         if(element.role === 'TEACHER'){

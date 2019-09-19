@@ -20,7 +20,7 @@ const StudyGroupSchema = new Schema(
     },
     img: {
       type: String,
-      default: 'https://i.ibb.co/x2nxj3g/default-group.jpg'
+      default: 'https://i.ibb.co/vqtB5BW/adult-chair-conversation-2422290.jpg'
     }
   },
   {

@@ -7,6 +7,7 @@ const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
 
+
 //signup
 router.get('/signup', (req, res, next) => {
   const config = {

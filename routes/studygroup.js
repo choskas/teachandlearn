@@ -6,9 +6,9 @@ const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
+const isLoggedIn = require('../middlewares/isLoggedIn')
 
-
-router.get('/newgroup', async(req, res, next) => {
+router.get('/newgroup',isLoggedIn('/login'), async(req, res, next) => {
   
   res.render('auth/create-group')
 })

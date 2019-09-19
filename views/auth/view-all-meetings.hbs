@@ -17,7 +17,7 @@
     {{#each meetings}}
 
     <div class="card" style="width: 18rem;" id="meeting-card">
-      <img src="https://i.ibb.co/gWjqGf2/adolescent-connection-discussion-1595391.jpg" class="card-img-top" alt="...">
+      <img src="{{this.img}}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{this.name}}</h5>
         <p class="card-text">{{this.description}}
@@ -29,8 +29,9 @@
         <li class="list-group-item">{{this.adress}}</li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Join the meeting</a>
-     
+        <form action="{{this._id}}/meetingregister" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Join meeting">
+    </form>
       </div>
     </div>
 

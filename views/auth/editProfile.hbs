@@ -91,4 +91,32 @@
 </div>
 </div>
 </div>
+
+
+<form action="/editgroup" method="POST" enctype="multipart/form-data">
+ </form>
+
+<h2>Editar Grupos</h2>
+
+<div class="col-md-10 offset-md-1">
+
+<div class="container">
+
+{{#each grupos}}
+<div class="card" style="width: 18rem;" id="group-card">
+  <img src="{{this.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><p>{{this.name}}</p></h5>
+    <p class="card-text"><p>{{this.themes}}</p>
+    
+      
+  </div>
+  <a value ="{{this._id}}"href="{{this._id}}/editOne" class="btn btn-primary">Editar</a>
+    <a value ="{{this._id}}"href="{{this._id}}/deleteOne" class="btn btn-danger">Borrar</a>
+</div>
+
+{{/each}}
+</div>
+
+</div>
  
