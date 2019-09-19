@@ -1,0 +1,29 @@
+<form action="/{{subjects._id}}/editOneSubject" method="POST" enctype="multipart/form-data">
+  <h2>Edita Materia</label>
+  <input type="text" name="name" placeholder="{{subjects.name}}">
+  <div class="image-comment-item">
+  
+  <label for="themes"> Tema</label>
+  <input type="text" name="themes" placeholder="{{subjects.themes}}" >
+  <label for=" difficulty" placeholder="{{subjects.difficulty}}"> Difficulty</label>
+  <input type="number" name="difficulty" >
+
+  <div class="new-photo">
+  
+      <h5>Upload a new Photo</h5>
+   
+   
+  </div>
+   <div class="change-picture">
+
+  <input type="file" name="photo">
+  <br>
+  <input type="submit" value="Edit Subject">
+
+
+ 
+
+  
+</form>
+
+

@@ -40,7 +40,7 @@ router.get('/viewAllMeetings', async (req, res, next) => {
 })
 
 router.get('/viewAllGroups', async (req, res, next) => {
-  const grupos = await StudyGroup.find().limit(5)
+  const grupos = await StudyGroup.find()
 
   res.render('../views/auth/view-all-groups', { grupos })
 })

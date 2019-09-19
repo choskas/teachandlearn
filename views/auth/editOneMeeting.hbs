@@ -1,0 +1,44 @@
+<div class=" col-md-4 offset-md-4 ">
+
+<form action="/{{meetings._id}}/editOneMeeting" method="POST" enctype="multipart/form-data">
+  <h2>Edit a meeting</h2>
+  <label for="name">Nombre</label>
+  <input type="text" name="name" placeholder="{{meetings.name}}">
+  <br>
+  <label for="teacher"> Teacher</label>
+  <input type="text" name="teacher" placeholder="{{meetings.teacher}}">
+  <br>
+<input id="address" name="address" type="text" placeholder="Enter meeting address">
+
+  <input name="images" type="file" multiple>
+<textarea name="description" placeholder="{{meetings.description}}"></textarea>
+
+<br>
+<div class="uk-flex uk-flex-center" id="search" placeholder="search">search</div>
+<div id='map' style='display: inline-flex;width: 400px; height: 300px;'></div>
+
+<br>
+  
+<label for="group"> Group</label>
+<input type="text" name="group">
+<div class="new-photo">
+  
+      <h5>Upload a new Photo</h5>
+   
+   
+  </div>
+   <div class="change-picture">
+
+  <input type="file" name="photo">
+  <br>
+  <input type="submit" value="SAVE">
+</form>
+
+</div>
+
+
+
+
+</div>
+ 
+  </div>
