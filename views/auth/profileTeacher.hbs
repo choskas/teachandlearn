@@ -1,13 +1,13 @@
 <div class="profile-container">
 
 
-<div class="profile-left col-md-4 offset-md-2 ">
+<div class="profile-left col-md-4 offset-md-3 ">
  
   <div class="profile-picture">
     <img src="{{usr.profile.img}}" alt="" class="profpic">
 
     <div class="new-photo ">
-      <h5>Upload a new Photo</h5>
+      <h5>Subir foto</h5>
     <form action="/profile/add" method="post" enctype="multipart/form-data">
    
   </div>
@@ -16,10 +16,11 @@
 
  <div class="change-picture">
 
-  <input type="file" name="photo">
+  <input type="file" name="photo" >
   <br>
-  <input type="submit" class="small-button"  value="SAVE">
-
+ <div class="adjust-change">
+  <input type="submit" class="small-button"  value="Guardar">
+</div>
   </form>
   </div>
 
@@ -45,9 +46,9 @@
   <br>
 
     <div class="your-choice">
-    <h5>Please, select your subjects </h5>
+    <h5>Selecciona tus materias</h5>
     </div>
-
+ <div class="options-subjects">
   <div class="btn-group subject-selection">
     <form action="/profile/addSubject" method="post">
       <label><input name="subject" class="style-option" value="Matematicas" type="checkbox"> Matemáticas </label>
@@ -58,20 +59,25 @@
       <label><input name="subject" value="Biologia" type="checkbox"> Biología </label>
         <label><input name="subject" value="Astronomia" type="checkbox"> Astronomía </label>
           <label><input name="subject" value="Marketing" type="checkbox"> Marketing </label>
-      <button class="small-button" type="submit" class="small-button" >SAVE</button>
+      <div class="adjust-button">   
+      <button class="small-button" type="submit"  >Guardar</button>
+      </div>
     </form>
-  
+  <div class="teachable-subjects">
+    <b>ESTAS SON TUS MATERIAS:</b>
     <p>{{usr.profile.subject}}</p>
-
+</div>
   </div>
-
+</div>
 
 
   
+<div class="thebuttons">
+
 <div class="logout-profile">
   <a href="/newmeeting">
 
-    <button class="button-logout-profile"><i class="fa fa-calendar"></i>New Meeting</button>
+    <button class="button-logout-profile"><i class="fa fa-calendar"></i>Nueva sesión de estudio</button>
   </a>
 
 
@@ -92,12 +98,10 @@
 
 <div class="logout-profile">
   <a href="/logout">
-    <button class="button-logout-profile">Logout</button>
+    <button class="button-logout-profile">Cerrar sesión</button>
   </a>
-
-
 </div>
-
+</div>
 
 
 </div>

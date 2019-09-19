@@ -2,7 +2,7 @@
 
 <form action="/createmeeting" method="POST" enctype="multipart/form-data">
   <div class="form-group">
-  <h2>Create a meeting</h2>
+  <h2>Create sesión de estudio</h2>
   {{!-- <label for="name">Nombre</label>
   <input type="text" name="name" class="form-control" placeholder="Name your study session"> --}}
     <br>
@@ -10,13 +10,13 @@
   <input type="text" class="form-control" name="name">
   <br>
   <br>
-  <label for="teacher"> Teacher</label>
+  <label for="teacher">Maestro</label>
   <input type="text" class="form-control" name="teacher">
   <br>
-  <label for="date">Date</label>
+  <label for="date">Fecha</label>
   <input type="date" class="form-control" name="date">
   <br>
-   <div id="search">aqui</div>
+   <div id="search"></div>
   <br>
 <input id="address" class="form-control" name="address" type="text" placeholder="Enter meeting address" value={{meeting.location.address}}>
 <br>
@@ -39,7 +39,7 @@
 <input type="text" class="form-control" name="group"> --}}
 <div class="new-photo">
   
-      <h5>Upload a new Photo</h5>
+      <h5>Subir foto</h5>
    
    
   </div>
@@ -50,7 +50,7 @@
   <input type="submit" class="form-control" value="SAVE">
 
 </div>
-<button type="submit" class="btn btn-primary">Create session</button>
+<button type="submit" class="btn btn-primary">Crear sesión</button>
 </div>
 
 </form>

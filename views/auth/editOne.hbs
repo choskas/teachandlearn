@@ -1,18 +1,18 @@
-<h2>editone</h2>
 
 
+<div class="col-md-4 offset-md-4 " id="edit-one-form">
 <form action="/{{grupos._id}}/editOne" method="POST" enctype="multipart/form-data">
-  <h2>Comment</h2>
+  <h2>EDITAR</h2>
   <label for="name">Nombre</label>
-  <input type="text" name="name" placeholder="{{grupos.name}}">
+  <input type="text" class="form-control" name="name" placeholder="{{grupos.name}}">
   <label for="themes"> Tema</label>
-  <input type="text" name="themes" palceholder={{grupos.themes}}>
-  <label for=" difficulty" placeholder="1,5,10"> Difficulty</label>
-  <input type="number" name="difficulty" placeholder="{{grupos.difficulty}}">
+  <input type="text" class="form-control" name="themes" palceholder={{grupos.themes}}>
+  <label for=" difficulty" placeholder="1,5,10">Nivel de dificultad</label>
+  <input type="number" class="form-control" name="difficulty" placeholder="{{grupos.difficulty}}">
 
   <div class="new-photo">
   
-      <h5>Upload a new Photo</h5>
+      <h5>Subir nueva foto</h5>
    
    
   </div>
@@ -25,5 +25,6 @@
 
   <button type="submit">Editar Grupo</button>
 </form>
+</div>
 
 

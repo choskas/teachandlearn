@@ -12,7 +12,6 @@ router.post(
   uploadCloud.single('img'),
   async (req, res, next) => {
     const { url: img } = req.file
-
     const {
       name,
       teacher,
@@ -23,7 +22,7 @@ router.post(
       description,
       group
     } = req.body
-    const {_id:owner} = req.user
+    const { _id: owner } = req.user
     await Meeting.create({
       name,
       teacher,
@@ -37,25 +36,19 @@ router.post(
       group,
       owner
     })
-
     res.redirect('/news')
   }
 )
-
-router.get('/newmeeting',isLoggedIn('/login'), (req, res, next) => {
+router.get('/newmeeting', isLoggedIn('/login'), (req, res, next) => {
   res.render('../views/auth/create-meeting')
 })
-
 router.post('/:id/meetingregister', async (req, res, next) => {
   const { id } = req.params
-
   const { userName, picPath, email, role } = await User.findById(req.user.id)
   const allUser = await User.findById(req.user.id)
-
   const meeting = await Meeting.findByIdAndUpdate(id, {
     $push: { assistants: allUser }
   })
-
   const mapa = await Meeting.findById(id)
 
   console.log('el nombre de la reunioooon', mapa.location.coordinates[1])
@@ -71,10 +64,8 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     meeting
   })
 })
-
 router.post('/newregister', async (req, res, next) => {
   res.redirect('/viewAllMeetings')
 })
-
 
 module.exports = router

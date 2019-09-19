@@ -9,7 +9,6 @@ const Meeting = require('../models/Meeting')
 const isLoggedIn = require('../middlewares/isLoggedIn')
 const isLoggedOut = require('../middlewares/isLoggedOut')
 
-
 //signup
 router.get('/signup', (req, res, next) => {
   const config = {
@@ -89,7 +88,7 @@ router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
 })
 router.post('/profile/addSubject', async (req, res) => {
   const { subject } = req.body
-  const { profile: profileId } = await User.findById(req.user.id).populate('profile')
+  const { profile: profileId } = await User.findById(req.user.id)
   await Profile.findByIdAndUpdate(profileId, {
     subject
   })
