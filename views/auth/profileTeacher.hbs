@@ -4,13 +4,16 @@
 <div class="profile-left col-md-4 offset-md-2 ">
  
   <div class="profile-picture">
-    <img src="{{profile.img}}" alt="" class="profpic">
+    <img src="{{usr.profile.img}}" alt="" class="profpic">
 
-    <div class="new-photo">
+    <div class="new-photo ">
       <h5>Upload a new Photo</h5>
     <form action="/profile/add" method="post" enctype="multipart/form-data">
    
   </div>
+
+
+
  <div class="change-picture">
 
   <input type="file" name="photo">
@@ -19,14 +22,23 @@
 
   </form>
   </div>
+
+  <div class="row space-buttons">
+    <a href="/news">
+      <button class="button-explore-profile">Explorar página</button>
+    </a>
+  </div>
 </div>
 </div>
 
 <div class="profile-right .col-md-4 .col-lg-4">
 <div class="row">
   <div class="profile-headline">
-    <h2>Perfil de Maestro</h2>
-    hi {{usr.userName}}
+    Perfil de Maestro
+
+    <div class="the-teacher">
+    <h2> hi {{usr.userName}} !!</h2>
+    </div>
 
   </div>
   </div>
@@ -36,9 +48,9 @@
     <h5>Please, select your subjects </h5>
     </div>
 
-  <div class="subject-selection">
+  <div class="btn-group subject-selection">
     <form action="/profile/addSubject" method="post">
-      <label><input name="subject" value="Matematicas" type="checkbox"> Matemáticas </label>
+      <label><input name="subject" class="style-option" value="Matematicas" type="checkbox"> Matemáticas </label>
       <label><input name="subject" value="Fisica" type="checkbox"> Física </label>
       <label><input name="subject" value="Programacion" type="checkbox"> Programación </label>
       <label><input name="subject" value="Literatura" type="checkbox"> Literatura </label>
@@ -49,13 +61,17 @@
       <button class="small-button" type="submit" class="small-button" >SAVE</button>
     </form>
   
-    <p>{{profile.subject}}</p>
+    <p>{{usr.profile.subject}}</p>
 
   </div>
+
+
+
   
 <div class="logout-profile">
   <a href="/newmeeting">
-    <button class="button-logout-profile">New Meeting</button>
+
+    <button class="button-logout-profile"><i class="fa fa-calendar"></i>New Meeting</button>
   </a>
 
 
@@ -77,6 +93,8 @@
 
 
 </div>
+
+
 
 </div>
 

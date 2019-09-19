@@ -4,7 +4,7 @@
 <div class="profile-left col-md-4 offset-md-2 ">
  
   <div class="profile-picture">
-    <img src="{{profile.img}}" alt="" class="profpic">
+    <img src="{{usr.profile.img}}" alt="" class="profpic">
 
     <div class="new-photo">
       <h5>Upload a new Photo</h5>
@@ -19,6 +19,12 @@
 
   </form>
   </div>
+  <div class="row space-buttons">
+    <a href="/news">
+      <button class="button-logout-profile">Explorar página</button>
+    </a>
+  </div>
+
 </div>
 </div>
 
@@ -30,14 +36,15 @@
   </div>
   </div>
 
-  <div class="logout-profile">
+
+  <div class="button-create">
   <a href="/newgroup">
     <button class="button-logout-profile">Crear Grupo de Estudio</button>
   </a>
-
+ 
+<a href="/logout">
+  <button>Logout</button>
+</a>
 
 </div>
 
-<a href="/logout">
-<button>Logout</button>
-</a>
