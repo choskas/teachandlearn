@@ -18,16 +18,10 @@ const StudyGroupSchema = new Schema(
       enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       required: true
     },
-    img: String
-    // people: {
-    //   ref: 'User',
-    //   type: Array,
-    //   type: Schema.Types.ObjectId
-    // },
-    // sessions: {
-    //   ref: 'StudyGroup',
-    //   type: Schema.Types.ObjectId
-    // }
+    img: {
+      type: String,
+      default: 'https://i.ibb.co/x2nxj3g/default-group.jpg'
+    }
   },
   {
     timestamps: true,
