@@ -1,0 +1,94 @@
+
+<form action="/editgroup" method="POST" enctype="multipart/form-data">
+ </form>
+<div class="edit-titles"><h2>Editar Grupos</h2></div>
+
+<div class="col-md-10 offset-md-1">
+
+<div class="container">
+
+{{#each grupos}}
+<div class="card" style="width: 18rem;" id="group-card">
+  <img src="{{this.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><p>{{this.name}}</p></h5>
+    <p class="card-text"><p>{{this.themes}}</p>
+    
+      
+  </div>
+  <a value ="{{this._id}}"href="{{this._id}}/editOne" class="btn btn-primary">Editar</a>
+    <a value ="{{this._id}}"href="{{this._id}}/deleteOne" class="btn btn-danger">Borrar</a>
+</div>
+
+{{/each}}
+</div>
+
+</div>
+
+<div class="edit-titles">
+<h2>Editar meetings</h2>
+</div>
+
+<div class="col-md-10 offset-md-1">
+
+<div class="container">
+
+{{#each meetings}}
+
+
+
+<div class="card" style="width: 18rem;" id="meeting-card">
+  <img src="{{this.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.description}}
+    </p>
+   
+  </div>
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item">{{this.adress}}</li>
+  </ul>
+   <div class="card-body">
+
+  
+  </div>
+  <a value ="{{this._id}}"href="{{this._id}}/editOneMeeting" class="btn btn-primary">Editar</a>
+    <a value ="{{this._id}}"href="{{this._id}}/deleteOneMeeting" class="btn btn-danger">Borrar</a>
+</div>
+
+
+{{/each}}
+
+</div>
+
+</div>
+
+
+
+<div class="edit-titles">
+<h2>Edit Subjects</h2>
+</div>
+<div class="col-md-10 offset-md-1">
+
+<div class="container">
+{{#each subjects}}
+<div class="card" style="width: 280px" id="sub-div" >
+  <img src="{{this.img}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+  
+  </div>
+  <ul class="list-group list-group-flush"></ul>
+      <p class="card-text">{{this.themes}}</p>
+    <li class="list-group-item">DIFFICULTY: {{this.difficulty}}</li>
+  </ul>
+  <a value ="{{this._id}}"href="{{this._id}}/editOneSubject" class="btn btn-primary">Editar</a>
+  <a value ="{{this._id}}"href="{{this._id}}/deleteOneSubject" class="btn btn-danger">Borrar</a>
+</div>
+
+{{/each}}
+</div>
+</div>
+</div>
+ 

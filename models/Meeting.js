@@ -6,7 +6,7 @@ const meetingSchema = new Schema(
     teacher: {
       //ype: Schema.Types.ObjectId,
       //required: true,
-      type: String
+      type: String,
       //ref: 'User'
     },
 
@@ -37,10 +37,7 @@ const meetingSchema = new Schema(
         'https://i.ibb.co/ZJpB208/default-meetings.jphttps://i.ibb.co/ZJpB208/default-meetings.jpg'
       //required: true
     },
-    name: {
-      type: String
-      //required: true
-    },
+   name: String,
     user: {
       ref: 'User',
       type: Schema.Types.ObjectId

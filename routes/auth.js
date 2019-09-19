@@ -86,7 +86,7 @@ router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
 })
 router.post('/profile/addSubject', async (req, res) => {
   const { subject } = req.body
-  const { profile: profileId } = await User.findById(req.user.id)
+  const { profile: profileId } = await User.findById(req.user.id).populate('profile')
   await Profile.findByIdAndUpdate(profileId, {
     subject
   })

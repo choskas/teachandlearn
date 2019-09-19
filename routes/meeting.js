@@ -12,6 +12,7 @@ router.post(
   uploadCloud.single('img'),
   async (req, res, next) => {
     const { url: img } = req.file
+
     const {
       name,
       teacher,
@@ -40,6 +41,7 @@ router.post(
 )
 
 router.get('/newmeeting', (req, res, next) => {
+  const { usr } = req.user
   res.render('../views/auth/create-meeting')
 })
 

@@ -21,4 +21,32 @@ router.post('/creategroup',uploadCloud.single('photo'),  async (req, res, next) 
 })
 
 
+router.post('/:id/groupregister', async(req,res,next) => {
+  const {id} = req.params
+  
+
+ 
+  
+  const {userName, picPath, email, role} = await User.findById(req.user.id)
+  const allUser = await User.findById(req.user.id)
+  
+  const group = await StudyGroup.findByIdAndUpdate(id, {$push:{'assistants': allUser}})
+  
+ 
+  console.log('el nombre de la reunioooon', group.name)
+  console.log('el array', group.assistants)
+  console.log('las cosas del usuarioooo', allUser)
+ res.render('../views/auth/group-register', {userName, picPath, email, role, id})
+  
+})
+
+router.post('/newgroupregister', async(req,res,next)=>{
+  
+  
+  
+  
+
+  res.redirect('/viewAllGroups')
+})
+
 module.exports = router
