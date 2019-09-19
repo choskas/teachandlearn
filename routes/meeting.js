@@ -56,7 +56,9 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     $push: { assistants: allUser }
   })
 
-  console.log('el nombre de la reunioooon', meeting.name)
+  const mapa = await Meeting.findById(id)
+
+  console.log('el nombre de la reunioooon', mapa.location.coordinates[0])
   console.log('el array', meeting.assistants)
   console.log('las cosas del usuarioooo', allUser)
   res.render('../views/auth/meeting-register', {
@@ -64,7 +66,8 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     picPath,
     email,
     role,
-    id
+    id,
+    mapa
   })
 })
 
