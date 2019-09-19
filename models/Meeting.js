@@ -34,14 +34,18 @@ const meetingSchema = new Schema(
     img: {
       type: String,
       default:
-        'https://i.ibb.co/ZJpB208/default-meetings.jphttps://i.ibb.co/ZJpB208/default-meetings.jpg'
+        'https://i.ibb.co/gWjqGf2/adolescent-connection-discussion-1595391.jpg'
       //required: true
     },
    name: String,
     user: {
       ref: 'User',
       type: Schema.Types.ObjectId
-    }
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
     // group: {
     //   type: String,
     //   required: true,

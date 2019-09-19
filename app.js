@@ -13,7 +13,9 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 
 mongoose
-  .connect(process.env.DB, { useNewUrlParser: true })
+  .connect(process.env.DB, {
+    useNewUrlParser: true
+  })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -40,10 +42,12 @@ app.use(
   session({
     secret: 'Mariana_15',
     resave: true,
-    cookie: { maxAge: 60000 },
+    cookie: {
+      maxAge: 6000000000
+    },
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
-      ttl: 24 * 60 * 60 // 1 day
+      ttl: 24 * 6000 * 6000 // 1 day
     })
   })
 )
@@ -55,7 +59,9 @@ app.use(passport.session())
 // Middleware Setup
 app.use(logger('dev'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 app.use(cookieParser())
 
 // Express View engine setup

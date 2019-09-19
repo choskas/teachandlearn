@@ -6,7 +6,7 @@ const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
-
+const isLoggedIn = require('../middlewares/isLoggedIn')
 router.post(
   '/createmeeting',
   uploadCloud.single('img'),
@@ -22,6 +22,7 @@ router.post(
       description,
       group
     } = req.body
+    const {_id:owner} = req.user
     await Meeting.create({
       name,
       teacher,
@@ -32,14 +33,15 @@ router.post(
       },
       description,
       img,
-      group
+      group,
+      owner
     })
 
     res.redirect('/news')
   }
 )
 
-router.get('/newmeeting', (req, res, next) => {
+router.get('/newmeeting',isLoggedIn('/login'), (req, res, next) => {
   res.render('../views/auth/create-meeting')
 })
 
