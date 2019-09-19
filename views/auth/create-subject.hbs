@@ -1,15 +1,18 @@
 <form action="/createsubject" method="POST" enctype="multipart/form-data">
-  <h2>Comment</h2>
+  
+  
+  <div class="col-md-4  offset-md-4" id="subjectnew">
+  <h2>Subject</h2>
   <label for="name">Nombre</label>
-  <input type="text" name="name" placeholder="Materia">
+  <input type="text" name="name" class="form-control" placeholder="Materia">
   <div class="image-comment-item">
   {{!-- <label for="img"> Photo </label>
   <input type="file" name="img" class="form-control">
   </div> --}}
   <label for="themes"> Tema</label>
-  <input type="text" name="themes" >
+  <input type="text" name="themes"class="form-control" >
   <label for=" difficulty" placeholder="1,5,10"> Difficulty</label>
-  <input type="number" name="difficulty" >
+  <input type="number" name="difficulty" class="form-control">
 
   <div class="new-photo">
   
@@ -21,12 +24,12 @@
 
   <input type="file" name="photo">
   <br>
-  <input type="submit" value="SAVE">
+  <input type="submit" value="SAVE" class="form-control">
 
-
- 
-
-  <button type="submit">Create Subject</button>
+  <button type="submit" class="btn btn-primary">Create Subject</button>
 </form>
+</div>
+
+</div>
 
 

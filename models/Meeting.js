@@ -1,9 +1,7 @@
 const { Schema, model } = require('mongoose')
-// const plm = require('passport-local-mongoose')
 
 const meetingSchema = new Schema(
   {
-
     assistants: [],
     teacher: {
       //ype: Schema.Types.ObjectId,
@@ -17,35 +15,33 @@ const meetingSchema = new Schema(
       //required: true
     },
 
-    // location: {
-    //   type: {
-    //     type: String,
-    //     default: 'Point'
-    //   },
-    //   address: {
-    //     type: String
-    //   },
-    //   coordinates: {
-    //     type: [Number]
-    //   }
-    // },
-
-    address: {
-      type: String
+    location: {
+      type: {
+        type: String,
+        default: 'Point'
+      },
+      address: {
+        type: String
+      },
+      coordinates: {
+        type: [Number]
+      }
     },
 
     description: {
       type: String
     },
     img: {
-      type: String
+      type: String,
+      default:
+        'https://i.ibb.co/ZJpB208/default-meetings.jphttps://i.ibb.co/ZJpB208/default-meetings.jpg'
       //required: true
     },
     name: {
       type: String
       //required: true
     },
-    user:{
+    user: {
       ref: 'User',
       type: Schema.Types.ObjectId
     }
@@ -62,9 +58,9 @@ const meetingSchema = new Schema(
   }
 )
 
-// meetingSchema.index({
-//   location: '2dsphere'
-// })
+meetingSchema.index({
+  location: '2dsphere'
+})
 
 // userSchema.plugin(plm, { usernameField: 'email' })
 module.exports = model('Meeting', meetingSchema)

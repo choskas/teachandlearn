@@ -21,20 +21,10 @@ const subjectsSchema = new Schema(
       ref: 'User',
       type: Schema.Types.ObjectId
     },
-    img: String
-    // people: {
-    //   ref: 'User',
-    //   type: Array,
-    //   type: Schema.Types.ObjectId
-    // },
-    // sessions: {
-    //   ref: 'Session',
-    //   type: Schema.Types.ObjectId
-    // },
-    // groups: {
-    //   ref: 'StudyGroup',
-    //   type: Schema.Types.ObjectId
-    // }
+    img: {
+      type: String,
+      default: 'https://i.ibb.co/Z2KDbkd/default-subject.jpg'
+    }
   },
   {
     timestamps: true,

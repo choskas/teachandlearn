@@ -1,35 +1,35 @@
 <div class=" col-md-4 offset-md-4 ">
 
 <form action="/createmeeting" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
   <h2>Create a meeting</h2>
-  <label for="name">Nombre</label>
-  <input type="text" name="name" placeholder="Name your study session">
+  {{!-- <label for="name">Nombre</label>
+  <input type="text" name="name" class="form-control" placeholder="Name your study session"> --}}
   <br>
   <label for="teacher"> Teacher</label>
-  <input type="text" name="teacher">
+  <input type="text" class="form-control" name="teacher">
   <br>
-<input id="address" name="address" type="text" placeholder="Enter meeting address">
-
-  {{!-- <input id="address" name="address" type="text" placeholder="Enter meeting address"
-    value="{{meeting.location.address}}"> --}}
-  {{!-- <br>
-  <input id="lat" name="lat" type="text" placeholder="Enter meeting latitude"
+   <div id="search">aqui</div>
+  <br>
+<input id="address" class="form-control" name="address" type="text" placeholder="Enter meeting address" value={{meeting.location.address}}>
+<br>
+  <input id="lat" name="lat" class="form-control" type="text" placeholder="Enter property latitude"
     value="{{meeting.location.coordinates.[0]}}">
-  <br>
-  <input id="lng" name="lng"  type="text" placeholder="Enter meeting longitud"
+<br>
+  <input id="lng" name="lng" class="form-control" type="text" placeholder="Enter property longitud"
     value="{{meeting.location.coordinates.[1]}}">
-  <br> --}}
-  <input name="images" type="file" multiple>
-<textarea name="description" placeholder="Enter description">{{meeting.description}}</textarea>
+  </div>
+  <br>
+  <div id='map' style='display: inline-flex;width: 400px; height: 300px;'></div>
+
 
 <br>
-<div class="uk-flex uk-flex-center" id="search" placeholder="search">search</div>
-<div id='map' style='display: inline-flex;width: 400px; height: 300px;'></div>
+
 
 <br>
   
-<label for="group"> Group</label>
-<input type="text" name="group">
+{{!-- <label for="group"> Group</label>
+<input type="text" class="form-control" name="group"> --}}
 <div class="new-photo">
   
       <h5>Upload a new Photo</h5>
@@ -38,47 +38,41 @@
   </div>
    <div class="change-picture">
 
-  <input type="file" name="photo">
+  <input type="file" name="img">
   <br>
-  <input type="submit" value="SAVE">
-</form>
+  <input type="submit" class="form-control" value="SAVE">
 
-
-<button type="submit">Create session</button>
+</div>
+<button type="submit" class="btn btn-primary">Create session</button>
 </div>
 
-
+</form>
 
 
 </div>
  
-
+<script>
+  const address = document.getElementById("address");
+  const lat = document.getElementById("lat");
+  const lng = document.getElementById("lng");
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyeW1vcmEiLCJhIjoiY2swZHhuaTJrMGMzYzNtc2RvMHpnNGIzdSJ9.IHxcXifUnOJ4rb2v0oTyAg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+  const geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+  })
+  document.getElementById("search").appendChild(geocoder.onAdd(map))
+  geocoder.on("result", (e) => {
+    console.log(e.result)
+    address.value = e.result.place_name;
+    lat.value = e.result.center[0];
+    lng.value = e.result.center[1];
+  })
+</script>
   
 
-  {{!-- <script>
-    const address = document.getElementById("address");
-    const lat = document.getElementById("lat");
-    const lng = document.getElementById("lng");
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyeW1vcmEiLCJhIjoiY2swZHhuaTJrMGMzYzNtc2RvMHpnNGIzdSJ9.IHxcXifUnOJ4rb2v0oTyAg';
-     let map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-       center: [-99.1711, 19.399],
-       zoom: 15
-    });
-    const geocoder = new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken
-    })
-    document.getElementById("search").appendChild(geocoder.onAdd(map))
-    geocoder.on("result", (e) => {
-      console.log(e.result)
-      address.value = e.result.place_name;
-      lat.value = e.result.center[0];
-      lng.value = e.result.center[1];
-    })
-
-
-    
-  </script> --}}
+ 
 
   </div>

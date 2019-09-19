@@ -215,7 +215,10 @@ p.card-text {
 
 .small-button {
   box-shadow: 4px 18px 5px -13px rgba(0, 0, 0, 0.28);
-  background-color: #E5F3F5;
+  background-color: #e5f3f5;
   border-radius: 5px; }
+
+#subjectnew {
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -54,6 +54,7 @@ router.post(
   }
 )
 //PERFIL
+<<<<<<< HEAD
 router.get('/profile', checkAuthentication, async (req, res, next) => {
   const user = await User.findById(req.user.id).populate('profile')
   if (req.user.role === 'TEACHER') {
@@ -63,7 +64,30 @@ router.get('/profile', checkAuthentication, async (req, res, next) => {
   }
   
   res.render('auth/profile', user)
+=======
+// router.get('/profile', checkAuthentication, async (req, res, next) => {
+//   const user = await User.findById(req.user.id).populate('profile')
+//   if (req.user.role === 'TEACHER') {
+//     console.log(user)
+//     await res.render('auth/profileTeacher', user)
+//   }
+//   await res.render('auth/profile', user)
+// })
+
+router.get('/profile', checkAuthentication, (req, res, next) => {
+  const { _id: id } = req.user
+  User.findById(id)
+    .populate('profile')
+    .then(usr => {
+      if (usr.role === 'TEACHER') {
+        res.render('auth/profileTeacher', { usr })
+      } else {
+        res.render('auth/profile', { usr })
+      }
+    })
+>>>>>>> 7cf68268da8e70061a277c1ea5826a9b6871dee1
 })
+
 router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
   const { url: img } = req.file
   const { profile: profileId } = await User.findById(req.user.id)

@@ -1,11 +1,15 @@
-<form action="/creategroup" method="POST" enctype="multipart/form-data">
-  <h2>Comment</h2>
+  
+  
+  <div class="col-md-4 offset-md-4 ">
+  <div class="form-group"> 
+  <form action="/creategroup" method="POST" enctype="multipart/form-data">
+  <h2>Create Group</h2>
   <label for="name">Nombre</label>
-  <input type="text" name="name" placeholder="Materia">
+  <input type="text" class="form-control" name="name"  placeholder="Materia">
   <label for="themes"> Tema</label>
-  <input type="text" name="themes">
+  <input type="text" class="form-control" name="themes" >
   <label for=" difficulty" placeholder="1,5,10"> Difficulty</label>
-  <input type="number" name="difficulty">
+  <input type="number" class="form-control" name="difficulty">
 
   <div class="new-photo">
   
@@ -15,10 +19,13 @@
   </div>
    <div class="change-picture">
 
-  <input type="file" name="photo">
+  <input type="file" class="form-control" name="photo">
   <br>
-  <input type="submit" value="SAVE">
+  <input type="submit" class="form-control" value="SAVE">
 
 
   <button type="submit">Create Group</button>
 </form>
+</div>
+</div>
+
