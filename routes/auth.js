@@ -54,17 +54,6 @@ router.post(
   }
 )
 //PERFIL
-<<<<<<< HEAD
-router.get('/profile', checkAuthentication, async (req, res, next) => {
-  const user = await User.findById(req.user.id).populate('profile')
-  if (req.user.role === 'TEACHER') {
-    console.log(user)
-    
-    res.render('auth/profileTeacher', user)
-  }
-  
-  res.render('auth/profile', user)
-=======
 // router.get('/profile', checkAuthentication, async (req, res, next) => {
 //   const user = await User.findById(req.user.id).populate('profile')
 //   if (req.user.role === 'TEACHER') {
@@ -85,7 +74,6 @@ router.get('/profile', checkAuthentication, (req, res, next) => {
         res.render('auth/profile', { usr })
       }
     })
->>>>>>> 7cf68268da8e70061a277c1ea5826a9b6871dee1
 })
 
 router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
@@ -98,7 +86,7 @@ router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
 })
 router.post('/profile/addSubject', async (req, res) => {
   const { subject } = req.body
-  const { profile: profileId } = await User.findById(req.user.id)
+  const { profile: profileId } = await User.findById(req.user.id).populate('profile')
   await Profile.findByIdAndUpdate(profileId, {
     subject
   })

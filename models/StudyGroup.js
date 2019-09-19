@@ -20,22 +20,8 @@ const StudyGroupSchema = new Schema(
     },
     img: {
       type: String,
-<<<<<<< HEAD
-    },
-    assistants: []
-    // people: {
-    //   ref: 'User',
-    //   type: Array,
-    //   type: Schema.Types.ObjectId
-    // },
-    // sessions: {
-    //   ref: 'StudyGroup',
-    //   type: Schema.Types.ObjectId
-    // }
-=======
       default: 'https://i.ibb.co/x2nxj3g/default-group.jpg'
     }
->>>>>>> 7cf68268da8e70061a277c1ea5826a9b6871dee1
   },
   {
     timestamps: true,
