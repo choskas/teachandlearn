@@ -12,7 +12,6 @@ router.post(
   uploadCloud.single('img'),
   async (req, res, next) => {
     const { url: img } = req.file
-
     const {
       name,
       teacher,
@@ -23,7 +22,7 @@ router.post(
       description,
       group
     } = req.body
-    const {_id:owner} = req.user
+    const { _id: owner } = req.user
     await Meeting.create({
       name,
       teacher,
@@ -37,27 +36,20 @@ router.post(
       group,
       owner
     })
-
     res.redirect('/news')
   }
 )
-
-router.get('/newmeeting',isLoggedIn('/login'), (req, res, next) => {
+router.get('/newmeeting', isLoggedIn('/login'), (req, res, next) => {
   res.render('../views/auth/create-meeting')
 })
-
 router.post('/:id/meetingregister', async (req, res, next) => {
   const { id } = req.params
-
   const { userName, picPath, email, role } = await User.findById(req.user.id)
   const allUser = await User.findById(req.user.id)
-
   const meeting = await Meeting.findByIdAndUpdate(id, {
     $push: { assistants: allUser }
   })
-
   const mapa = await Meeting.findById(id)
-
   console.log('el nombre de la reunioooon', mapa.location.coordinates[0])
   console.log('el array', meeting.assistants)
   console.log('las cosas del usuarioooo', allUser)
@@ -70,14 +62,11 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     mapa
   })
 })
-
 router.post('/newregister', async (req, res, next) => {
   res.redirect('/viewAllMeetings')
 })
-
 // user = User.findById(req.user.id)
 //   console.log('el userrrrr', user.userName)
 //   let registrado = user.register === true
 //   console.log('esta registradooooo', registrado)
-
 module.exports = router
