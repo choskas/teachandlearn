@@ -1,10 +1,12 @@
 <div class="jumbotron" style="background-image: url(https://i.ibb.co/vqtB5BW/adult-chair-conversation-2422290.jpg); background-size: 100%;">
 <div class="group-header-text">
-  <h1 class="display-4">Study Groups</h1>
-  <p class="lead">Find your tribe or create your own</p>
+  <h1 class="display-4">Grupos de estudio</h1>
+  <p class="lead">Encuentra tu grupo de estudio o crea el tuyo</p>
 
-  <p class="groups-description">In this section you'll find all available groups</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <p class="groups-description">Aquí encontraras los grupos disponibles</p>
+     <a class="btn btn-primary btn-lg" href="/newGroup" role="button">Crea un grupo</a>
+  <a class="btn btn-primary btn-lg" href="/news" role="button">Regresar</a>
+
   </div>
 </div>
 
@@ -21,7 +23,7 @@
     <p class="card-text">
       <p>{{this.difficulty}}</p>
     <form action="{{this._id}}/groupregister" method="POST" enctype="multipart/form-data">
-    <input type="submit" value="Join meeting">
+    <input type="submit" value="Unirse a grupo">
     </form>
     {{#each this.assistants}}
      <p class="card-text">{{this.userName}}

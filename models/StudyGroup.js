@@ -3,6 +3,7 @@ const { Schema, model } = require('mongoose')
 
 const StudyGroupSchema = new Schema(
   {
+    assistants: [],
     name: {
       type: String,
       unique: true,

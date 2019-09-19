@@ -1,76 +1,62 @@
+<div class="col-md-4 offset-md-1">
+<h2>Información</h2>
 <form action="/newregister" method="POST" enctype="multipart/form-data">
-  <h2>REGISTRO</h2>
-  <label for="userName">Nombre</label>
-  {{usr.userName}}
-  <br>
-  <label for="email">Email</label>
- {{email}}
- <br>
-  <label for=" difficulty" placeholder="1,5,10"> Imagen de Perfil</label>
-  <img src="{{picPath}}" alt="profilepicture">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{picPath}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{userName}}</h5>
+       
+ 
+        <p class="card-text"><small class="text-muted">{{email}}</small></p>
+                 <button class="btn btn-dark" type="submit">Regresar
+  </button>
+      </div>
+    </div>
+  </div>
+</div>
 
- <h1> el id {{id}}</h1>
-
-
-  <button type="submit">Terminar Registro</button>
-  <p id="lat1" value="{{mapa.location.coordinates.[0]}}">{{mapa.location.coordinates.[0]}}</p>
-  <p id="lng1" value="{{mapa.location.coordinates.[1]}}">{{mapa.location.coordinates.[1]}}</p>
-</form>
-
-<div id='map' style='display: inline-flex;width: 400px; height: 300px;'></div>
-
-
-
-<script>
-  const address = document.getElementById("address");
-
-  mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyeW1vcmEiLCJhIjoiY2swZHhuaTJrMGMzYzNtc2RvMHpnNGIzdSJ9.IHxcXifUnOJ4rb2v0oTyAg';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
-  const geocoder = new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-  })
-
-  function startMap() {
-
-  // Store Ironhack's coordinates
-   const lat = document.getElementById("lat1");
-  const lng = document.getElementById("lng1");
-  console.log('cosas chidas', lat.value)
-  const ironhackMEX = [ lat.value, lng.value ];
 
   
 
-  // Add a marker for Ironhack México
-  const IronhackMEXMarker = new mapboxgl.Marker()
-    .setLngLat(ironhackMEX)
+<br>
+
+ 
+  <br>
+
+<h4>Dirección:</h4>
+
+<p>{{meeting.location.address}}</p>
+<h3>Aqui sera tu sesión:</h3>
+<div id='map' style='display: inline-flex;width: 800px; height: 500px;'></div>
+
+
+</div>
+
+<p>{{mapa.location.coordinates.[0]}}</p>
+<p>{{mapa.location.coordinates.[1]}}</p>
+<script>
+ const lat = {{mapa.location.coordinates.[0]}}
+ const lng = {{mapa.location.coordinates.[1]}}
+ 
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2FyeW1vcmEiLCJhIjoiY2swZHhuaTJrMGMzYzNtc2RvMHpnNGIzdSJ9.IHxcXifUnOJ4rb2v0oTyAg';
+const map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v10",
+  center: [lat, lng],
+  zoom: 15
+});
+const marker = new mapboxgl.Marker({color: "red", draggable: true})
+    .setLngLat([lat, lng])
     .addTo(map);
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      const user_location = [
-        position.coords.longitude,
-        position.coords.latitude
-      ];
 
-      // Center map with user location
-      map.setCenter(user_location);
+ map.addControl(new MapboxDirections({accessToken: mapboxgl.accessToken}), 'bottom-left');
+    map.addControl(new mapboxgl.NavigationControl());
 
-      // Add a marker for your user location
-      const userLocationMarker = new mapboxgl.Marker({ color: "red" })
-        .setLngLat(user_location)
-        .addTo(map);
 
-    }, function () {
-      console.log('Error in the geolocation service.');
-    });
-  } else {
-    console.log('Browser does not support geolocation.');
-  }
-}
 
-startMap();
 </script>
-

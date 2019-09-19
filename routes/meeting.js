@@ -58,7 +58,7 @@ router.post('/:id/meetingregister', async (req, res, next) => {
 
   const mapa = await Meeting.findById(id)
 
-  console.log('el nombre de la reunioooon', mapa.location.coordinates[0])
+  console.log('el nombre de la reunioooon', mapa.location.coordinates[1])
   console.log('el array', meeting.assistants)
   console.log('las cosas del usuarioooo', allUser)
   res.render('../views/auth/meeting-register', {
@@ -67,7 +67,8 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     email,
     role,
     id,
-    mapa
+    mapa,
+    meeting
   })
 })
 
@@ -75,9 +76,5 @@ router.post('/newregister', async (req, res, next) => {
   res.redirect('/viewAllMeetings')
 })
 
-// user = User.findById(req.user.id)
-//   console.log('el userrrrr', user.userName)
-//   let registrado = user.register === true
-//   console.log('esta registradooooo', registrado)
 
 module.exports = router

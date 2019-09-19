@@ -14,12 +14,13 @@ router.get('/editProfile', isLoggedIn('/login'), checkRole('TEACHER'), async (re
   const {
     user
   } = req
+  const usr = req.user
   const grupos = await StudyGroup.find()
   const meetings = await Meeting.find({owner: user._id})
   const subjects = await Subject.find({
     owner: user._id
   })
-  res.render('auth/editProfile', {
+  res.render('auth/editProfile', { usr,
     grupos,
     meetings,
     subjects
@@ -38,7 +39,7 @@ router.get('/:id/editOne',isLoggedIn('/login'), checkRole('TEACHER'), async (req
   const {
     id
   } = req.params
-
+  const usr = req.user
   const grupos = await StudyGroup.findById(id)
   console.log('subjectsssssss', grupos)
 
@@ -47,7 +48,7 @@ router.get('/:id/editOne',isLoggedIn('/login'), checkRole('TEACHER'), async (req
   })
 
 
-  res.render('../views/auth/editOne', { grupos })
+  res.render('../views/auth/editOne', { grupos, usr })
 })
 
 router.post('/:id/editOne', uploadCloud.single('photo'), async (req, res, next) => {
@@ -75,7 +76,7 @@ router.get('/:id/editOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   const {
     id
   } = req.params
-
+const usr = req.user
   const meetings = await Meeting.findById(id)
   console.log('meetingsss', meetings)
 
@@ -84,7 +85,7 @@ router.get('/:id/editOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   })
 
 
-  res.render('../views/auth/editOneMeeting', { meetings })
+  res.render('../views/auth/editOneMeeting', { meetings, usr })
 })
 
 router.post('/:id/editOneMeeting', uploadCloud.single('photo'), async (req, res, next) => {
@@ -116,7 +117,7 @@ router.get('/:id/editOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   const {
     id
   } = req.params
-
+  const usr = req.user
   const subjects = await Subject.findById(id)
   console.log('subjectsss', subjects)
 
@@ -125,7 +126,7 @@ router.get('/:id/editOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   })
 
 
-  res.render('../views/auth/editOneSubject', { subjects })
+  res.render('../views/auth/editOneSubject', { subjects, usr })
 })
 
 router.post('/:id/editOneSubject', uploadCloud.single('photo'), async (req, res, next) => {
@@ -153,42 +154,42 @@ router.get('/:id/deleteOne',isLoggedIn('/login'),checkRole('TEACHER'), async (re
   const {
     id
   } = req.params
-
+const usr = req.user
   await StudyGroup.findByIdAndDelete(id)
   console.log('subjectsssssss')
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile',usr)
 
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile',usr)
 })
 
 router.get('/:id/deleteOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), async (req, res, next) => {
   const {
     id
   } = req.params
-
+const usr = req.user
   await Meeting.findByIdAndDelete(id)
   console.log('subjectsssssss')
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile',{usr})
 
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile', {usr})
 })
 
 router.get('/:id/deleteOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), async (req, res, next) => {
   const {
     id
   } = req.params
-
+  const usr = req.user
   await Subject.findByIdAndDelete(id)
   console.log('subjectsssssss')
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile', {usr})
 
 
-  res.redirect('../editProfile')
+  res.redirect('../editProfile', {usr})
 })
 
 

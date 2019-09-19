@@ -6,6 +6,8 @@ const uploadCloud = require('../config/cloudinary')
 const Subject = require('../models/Subject')
 const StudyGroup = require('../models/StudyGroup')
 const Meeting = require('../models/Meeting')
+const isLoggedIn = require('../middlewares/isLoggedIn')
+const isLoggedOut = require('../middlewares/isLoggedOut')
 
 
 //signup
@@ -39,7 +41,7 @@ router.post('/signup', async (req, res, next) => {
 })
 
 //login
-router.get('/login', async (req, res, next) => {
+router.get('/login', isLoggedOut('/news'),  async (req, res, next) => {
   const config = {
     title: 'Inicia Sesión',
     action: '/login',
@@ -79,7 +81,7 @@ router.get('/profile', checkAuthentication, (req, res, next) => {
 
 router.post('/profile/add', uploadCloud.single('photo'), async (req, res) => {
   const { url: img } = req.file
-  const { profile: profileId } = await User.findById(req.user.id)
+  const { profile: profileId} = await User.findById(req.user.id)
   await Profile.findByIdAndUpdate(profileId, {
     img
   })

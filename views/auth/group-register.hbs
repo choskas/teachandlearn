@@ -1,19 +1,41 @@
-<form action="/newgroupregister" method="POST" enctype="multipart/form-data">
-  <h2>REGISTRO</h2>
-  <label for="userName">Nombre</label>
-  {{userName}}
-  <br>
-  <label for="email">Email</label>
- {{email}}
- <br>
-  <label for=" difficulty" placeholder="1,5,10"> Imagen de Perfil</label>
-  <img src="{{picPath}}" alt="profilepicture">
+<h2>En el grupo: <a href="/viewAllGroups"> <button id= "assistants" class="btn btn-dark">Regresar
+  </button></a></h2>
 
- <h1> el id {{id}}</h1>
+{{#each group.assistants}}
+<form action="/newgroupregister" method="POST" enctype="multipart/form-data"></form>
 
+<div class="col-md-4 offset-md-1">
 
-  <button type="submit">Confirmar Registro</button>
+<form action="/newregister" method="POST" enctype="multipart/form-data">
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{this.picPath}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{this.userName}}</h5>
+       
+ 
+        <p class="card-text"><small class="text-muted">{{email}}</small></p>
+                 
+  
+      </div>
+    </div>
+  </div>
+</div>
 </form>
+</div>
+
+{{/each}}
+
+
+
+
+
+
+
+
 
 
 
