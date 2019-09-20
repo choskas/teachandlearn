@@ -20,6 +20,7 @@ Para entrar como alumno utiliza las siguientes credenciales:
 
 -usuario:juan_vidal  contraseña:123
 
+Si vas a crear un usuario favor de no subir imagenes muy grandes o dara error (cloudinary)
 
 
 ## License
