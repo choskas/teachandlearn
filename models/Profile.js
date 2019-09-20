@@ -8,6 +8,5 @@ const profileSchema = new Schema({
   },
   originalName: String,
   subject: [String]
-  //enum: ['Fisica','Matematicas','Programacion','Literatura','Quimica','Biologia','Marketing','Astronomia'],
-})
+  })
 module.exports = model('Profile', profileSchema)

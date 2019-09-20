@@ -72,7 +72,7 @@
   })
   document.getElementById("search").appendChild(geocoder.onAdd(map))
   geocoder.on("result", (e) => {
-    console.log(e.result)
+   
     address.value = e.result.place_name;
     lat.value = e.result.center[0];
     lng.value = e.result.center[1];

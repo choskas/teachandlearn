@@ -33,9 +33,6 @@ router.post('/:id/groupregister', async(req,res,next) => {
   const group = await StudyGroup.findByIdAndUpdate(id, {$push:{'assistants': allUser}})
   
  
-  console.log('el nombre de la reunioooon', group.name)
-  console.log('el array', group.assistants[0].userName)
-  console.log('las cosas del usuarioooo', allUser)
  res.render('../views/auth/group-register', {userName, picPath, email, role, id, group})
   
 })

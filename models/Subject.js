@@ -2,7 +2,7 @@ const {
   Schema,
   model
 } = require('mongoose')
-// const plm = require('passport-local-mongoose')
+
 
 const subjectsSchema = new Schema({
   name: {
@@ -31,5 +31,5 @@ const subjectsSchema = new Schema({
   timestamps: true,
   versionKey: false
 })
-// userSchema.plugin(plm, { usernameField: 'email' })
+
 module.exports = model('Subject', subjectsSchema)

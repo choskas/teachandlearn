@@ -34,7 +34,7 @@ router.post('/signup', async (req, res, next) => {
     )
     res.redirect('/login')
   } catch (errors) {
-    console.log(errors)
+    
     res.send('Tu usuario ya esta en uso')
   }
 })
@@ -55,15 +55,7 @@ router.post(
     await res.redirect('/profile')
   }
 )
-//PERFIL
-// router.get('/profile', checkAuthentication, async (req, res, next) => {
-//   const user = await User.findById(req.user.id).populate('profile')
-//   if (req.user.role === 'TEACHER') {
-//     console.log(user)
-//     await res.render('auth/profileTeacher', user)
-//   }
-//   await res.render('auth/profile', user)
-// })
+
 
 router.get('/profile', checkAuthentication, (req, res, next) => {
   const { _id: id } = req.user

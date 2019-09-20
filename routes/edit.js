@@ -42,7 +42,7 @@ router.get('/:id/editOne',isLoggedIn('/login'), checkRole('TEACHER'), async (req
   } = req.params
   const usr = req.user
   const grupos = await StudyGroup.findById(id)
-  console.log('subjectsssssss', grupos)
+ 
 
   res.render('../views/auth/editOne', {
     grupos, login: true
@@ -79,7 +79,7 @@ router.get('/:id/editOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   } = req.params
 const usr = req.user
   const meetings = await Meeting.findById(id)
-  console.log('meetingsss', meetings)
+
 
   res.render('../views/auth/editOneMeeting', {
     meetings
@@ -98,7 +98,7 @@ router.post('/:id/editOneMeeting', uploadCloud.single('photo'), async (req, res,
     teacher,
     address
   } = req.body
-  console.log('elnameeee', name)
+  
   await Meeting.findByIdAndUpdate(req.params.id, {
     name,
     teacher,
@@ -120,7 +120,7 @@ router.get('/:id/editOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), asyn
   } = req.params
   const usr = req.user
   const subjects = await Subject.findById(id)
-  console.log('subjectsss', subjects)
+ 
 
   res.render('../views/auth/editOneSubject', {
     subjects
@@ -139,7 +139,7 @@ router.post('/:id/editOneSubject', uploadCloud.single('photo'), async (req, res,
     themes,
     difficulty
   } = req.body
-  console.log('elnameeee', name)
+ 
   await Subject.findByIdAndUpdate(req.params.id, {
     name,
     themes,
@@ -157,7 +157,7 @@ router.get('/:id/deleteOne',isLoggedIn('/login'),checkRole('TEACHER'), async (re
   } = req.params
 const usr = req.user
   await StudyGroup.findByIdAndDelete(id)
-  console.log('subjectsssssss')
+  
 
   res.redirect('../editProfile',usr)
 
@@ -171,7 +171,7 @@ router.get('/:id/deleteOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), as
   } = req.params
 const usr = req.user
   await Meeting.findByIdAndDelete(id)
-  console.log('subjectsssssss')
+
 
   res.redirect('../editProfile',{usr})
 
@@ -185,7 +185,7 @@ router.get('/:id/deleteOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), as
   } = req.params
   const usr = req.user
   await Subject.findByIdAndDelete(id)
-  console.log('subjectsssssss')
+ 
 
   res.redirect('../editProfile', {usr})
 

@@ -4,15 +4,14 @@ const meetingSchema = new Schema(
   {
     assistants: [],
     teacher: {
-      //ype: Schema.Types.ObjectId,
-      //required: true,
+
       type: String,
-      //ref: 'User'
+ 
     },
 
     date: {
       type: Date
-      //required: true
+    
     },
 
     location: {
@@ -46,12 +45,7 @@ const meetingSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    // group: {
-    //   type: String,
-    //   required: true,
-    //   ref: 'StudyGroup',
-    //   type: Schema.Types.ObjectId
-    // }
+ 
   },
   {
     timestamps: true,
@@ -63,5 +57,5 @@ meetingSchema.index({
   location: '2dsphere'
 })
 
-// userSchema.plugin(plm, { usernameField: 'email' })
+
 module.exports = model('Meeting', meetingSchema)

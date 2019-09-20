@@ -51,9 +51,7 @@ router.post('/:id/meetingregister', async (req, res, next) => {
   })
   const mapa = await Meeting.findById(id)
 
-  console.log('el nombre de la reunioooon', mapa.location.coordinates[1])
-  console.log('el array', meeting.assistants)
-  console.log('las cosas del usuarioooo', allUser)
+
   res.render('../views/auth/meeting-register', {
     userName,
     picPath,

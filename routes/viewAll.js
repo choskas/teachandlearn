@@ -12,7 +12,7 @@ router.get('/viewAllTeachers',isLoggedIn('/login'), async (req, res, next) => {
   const find = await User.find().populate('profile')
   const users = find.map(function(element) {
     if (element.role === 'TEACHER') {
-      console.log('estos son los buenos', element)
+     
 
       return element
     }
@@ -24,13 +24,13 @@ router.get('/viewAllSubjects',isLoggedIn('/login'), async (req, res, next) => {
   const find = await User.find().populate('profile')
   const users = find.map(function(element) {
     if (element.role === 'TEACHER') {
-      console.log('estos son los buenos', element)
+      
       return element
     }
   })
 
   const subjects = await Subject.find()
-  console.log('los temassssss', subjects)
+
   res.render('../views/auth/view-all-subjects.hbs', { subjects })
 })
 

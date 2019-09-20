@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose')
-// const plm = require('passport-local-mongoose')
+
 
 const StudyGroupSchema = new Schema(
   {
@@ -29,5 +29,5 @@ const StudyGroupSchema = new Schema(
     versionKey: false
   }
 )
-// userSchema.plugin(plm, { usernameField: 'email' })
+
 module.exports = model('StudyGroup', StudyGroupSchema)
