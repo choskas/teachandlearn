@@ -9,6 +9,15 @@ Ir a este link
 
 [Teach and learn](https://limitless-scrubland-37557.herokuapp.com/)
 
+## Instalación 
+
+Para instalar Teach and learn en tu servidor local, clona este repositorio la ruta que tu deses en tu computadora. Después, accede a la carpeta de Teach and learn e instalar las dependencias, corriendo el siguiente comando en la consola:
+
+npm install
+
+
+Crear un archivo .env en la carpeta de Teach and learn, configurar PORT, configurar ENV=development.  Todo debe encontrarse en .env para generarlas como variables de entorno y que estas no puedan ser vistas en el servidor.
+
 
 ## Credenciales
 
