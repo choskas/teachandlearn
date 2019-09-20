@@ -159,10 +159,10 @@ const usr = req.user
   await StudyGroup.findByIdAndDelete(id)
   
 
-  res.redirect('../editProfile',usr)
+  res.redirect('/editProfile')
 
 
-  res.redirect('../editProfile',usr)
+  
 })
 
 router.get('/:id/deleteOneMeeting',isLoggedIn('/login'),checkRole('TEACHER'), async (req, res, next) => {
@@ -173,10 +173,10 @@ const usr = req.user
   await Meeting.findByIdAndDelete(id)
 
 
-  res.redirect('../editProfile',{usr})
+  res.redirect('/editProfile')
 
 
-  res.redirect('../editProfile', {usr})
+ 
 })
 
 router.get('/:id/deleteOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), async (req, res, next) => {
@@ -187,10 +187,7 @@ router.get('/:id/deleteOneSubject',isLoggedIn('/login'),checkRole('TEACHER'), as
   await Subject.findByIdAndDelete(id)
  
 
-  res.redirect('../editProfile', {usr})
-
-
-  res.redirect('../editProfile', {usr})
+  res.redirect('/editProfile')
 })
 
 
