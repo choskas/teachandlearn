@@ -23,7 +23,8 @@ router.get('/editProfile', isLoggedIn('/login'), checkRole('TEACHER'), async (re
   res.render('auth/editProfile', { usr,
     grupos,
     meetings,
-    subjects
+    subjects,
+    login: true
   })
 })
 
@@ -44,7 +45,7 @@ router.get('/:id/editOne',isLoggedIn('/login'), checkRole('TEACHER'), async (req
   console.log('subjectsssssss', grupos)
 
   res.render('../views/auth/editOne', {
-    grupos
+    grupos, login: true
   })
 
 
@@ -85,7 +86,7 @@ const usr = req.user
   })
 
 
-  res.render('../views/auth/editOneMeeting', { meetings, usr })
+  res.render('../views/auth/editOneMeeting', { meetings, usr, login: true })
 })
 
 router.post('/:id/editOneMeeting', uploadCloud.single('photo'), async (req, res, next) => {

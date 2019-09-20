@@ -10,7 +10,7 @@ const isLoggedIn = require('../middlewares/isLoggedIn')
 
 router.get('/newgroup',isLoggedIn('/login'), async(req, res, next) => {
   
-  res.render('auth/create-group')
+  res.render('auth/create-group', {login: true})
 })
 
 router.post('/creategroup',uploadCloud.single('photo'),  async (req, res, next) => {

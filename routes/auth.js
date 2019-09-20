@@ -71,9 +71,9 @@ router.get('/profile', checkAuthentication, (req, res, next) => {
     .populate('profile')
     .then(usr => {
       if (usr.role === 'TEACHER') {
-        res.render('auth/profileTeacher', { usr })
+        res.render('auth/profileTeacher', { usr, login: true })
       } else {
-        res.render('auth/profile', { usr })
+        res.render('auth/profile', { usr, login: true })
       }
     })
 })

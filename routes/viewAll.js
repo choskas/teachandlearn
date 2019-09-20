@@ -17,7 +17,7 @@ router.get('/viewAllTeachers',isLoggedIn('/login'), async (req, res, next) => {
       return element
     }
   })
-  res.render('../views/auth/view-all-teachers', { users })
+  res.render('../views/auth/view-all-teachers', { users, login: true })
 })
 
 router.get('/viewAllSubjects',isLoggedIn('/login'), async (req, res, next) => {
@@ -37,13 +37,13 @@ router.get('/viewAllSubjects',isLoggedIn('/login'), async (req, res, next) => {
 router.get('/viewAllMeetings',isLoggedIn('/login'), async (req, res, next) => {
   const meetings = await Meeting.find()
 
-  res.render('../views/auth/view-all-meetings', { meetings })
+  res.render('../views/auth/view-all-meetings', { meetings, login: true })
 })
 
 router.get('/viewAllGroups',isLoggedIn('/login'), async (req, res, next) => {
   const grupos = await StudyGroup.find()
 
-  res.render('../views/auth/view-all-groups', { grupos })
+  res.render('../views/auth/view-all-groups', { grupos, login: true })
 })
 
 module.exports = router

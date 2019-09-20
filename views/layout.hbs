@@ -32,15 +32,8 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
     
-      {{#unless usr}}
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Registrate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Inicia Sesión</a>
-      </li>
-        {{else}}
-        <li class="nav-item">
+      {{#if login}}
+ <li class="nav-item">
           <a class="nav-link" href="/news">Inicio</a>
         </li>
           <li class="nav-item">
@@ -50,7 +43,16 @@
           <li class="nav-item">  
             <a class="nav-link" href="/logout">Cierra Sesión</a>
           </li>
-      {{/unless}}
+
+     
+        {{else}}
+        <li class="nav-item">
+        <a class="nav-link" href="/signup">Registrate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Inicia Sesión</a>
+      </li>
+      {{/if}}
    
     </ul>
   </div>

@@ -9,7 +9,7 @@ const Meeting = require('../models/Meeting')
 const isLoggedIn = require('../middlewares/isLoggedIn')
 
 router.get('/subject', isLoggedIn('/login'), (req, res, next) => {
-  res.render('auth/create-subject')
+  res.render('auth/create-subject', {login: true})
 })
 
 router.post(
@@ -41,7 +41,7 @@ router.get('/news', isLoggedIn('/login'), async (req, res, next) => {
   const grupos = await StudyGroup.find().limit(5)
   const meetings = await Meeting.find().limit(5)
   const subjects = await Subject.find().limit(5)
-  res.render('../views/auth/news', { subjects, users, meetings, grupos })
+  res.render('../views/auth/news', { subjects, users, meetings, grupos, login: true })
 })
 
 module.exports = router

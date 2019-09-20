@@ -40,7 +40,7 @@ router.post(
   }
 )
 router.get('/newmeeting', isLoggedIn('/login'), (req, res, next) => {
-  res.render('../views/auth/create-meeting')
+  res.render('../views/auth/create-meeting', {login: true})
 })
 router.post('/:id/meetingregister', async (req, res, next) => {
   const { id } = req.params
@@ -61,7 +61,8 @@ router.post('/:id/meetingregister', async (req, res, next) => {
     role,
     id,
     mapa,
-    meeting
+    meeting,
+    
   })
 })
 router.post('/newregister', async (req, res, next) => {
